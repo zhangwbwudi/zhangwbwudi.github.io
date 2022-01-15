@@ -65,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://zhangwbwudi.github.io/categories/index.html</loc>
+    <loc>https://zhangwbwudi.github.io/census/index.html</loc>
     
     <lastmod>2022-01-15</lastmod>
     
   </url>
   
   <url>
-    <loc>https://zhangwbwudi.github.io/census/index.html</loc>
+    <loc>https://zhangwbwudi.github.io/categories/index.html</loc>
     
     <lastmod>2022-01-15</lastmod>
     
@@ -219,14 +219,14 @@
   </url>
   
   <url>
-    <loc>https://zhangwbwudi.github.io/List/galleries/%E5%8A%A8%E6%BC%AB%E4%BA%BA%E7%89%A9/index.html</loc>
+    <loc>https://zhangwbwudi.github.io/List/galleries/%E4%BA%8C%E6%AC%A1%E5%85%83%E9%A3%8E/index.html</loc>
     
     <lastmod>2022-01-15</lastmod>
     
   </url>
   
   <url>
-    <loc>https://zhangwbwudi.github.io/List/galleries/%E4%BA%8C%E6%AC%A1%E5%85%83%E9%A3%8E/index.html</loc>
+    <loc>https://zhangwbwudi.github.io/List/galleries/%E5%8A%A8%E6%BC%AB%E4%BA%BA%E7%89%A9/index.html</loc>
     
     <lastmod>2022-01-15</lastmod>
     
@@ -263,20 +263,6 @@
 
   
   <url>
-    <loc>https://zhangwbwudi.github.io/tags/PicGo/</loc>
-    <lastmod>2022-01-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhangwbwudi.github.io/tags/GitHub%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2022-01-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhangwbwudi.github.io/tags/Hexo/</loc>
     <lastmod>2022-01-15</lastmod>
     <changefreq>daily</changefreq>
@@ -285,6 +271,20 @@
   
   <url>
     <loc>https://zhangwbwudi.github.io/tags/%E6%B8%B2%E6%9F%93%E7%BB%95%E8%BF%87/</loc>
+    <lastmod>2022-01-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhangwbwudi.github.io/tags/PicGo/</loc>
+    <lastmod>2022-01-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhangwbwudi.github.io/tags/GitHub%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2022-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
