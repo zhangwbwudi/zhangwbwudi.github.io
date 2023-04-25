@@ -1,0 +1,2055 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="马哲, luckyzmj 计算机 网络安全 渗透测试">
+    <meta name="description" content="硕士 | 计算机科学与技术 | 网络安全">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>马哲 | 蜗牛</title>
+
+    <link rel="icon" type="image/jpeg" href="https://s1.ax1x.com/2020/05/17/YR20js.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?aaa6c944b0ed07922901d7fc571a171d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="蜗牛" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://s1.ax1x.com/2020/05/17/YRWsYT.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">蜗牛</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/census">
+          
+          <i class="fas fa-layer-group" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>统计</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-paper-plane" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tag" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-heartbeat" style="zoom: 0.6;"></i>
+      
+      <span>清单</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/List/music">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/List/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>相册</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/List/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视频</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-envelope" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tools" class="waves-effect waves-light">
+      
+      <i class="fas fa-suitcase" style="zoom: 0.6;"></i>
+      
+      <span>百宝箱</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Windows" class="waves-effect waves-light">
+      
+      <i class="fas fa-desktop" style="zoom: 0.6;"></i>
+      
+      <span>Windows</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-link" style="zoom: 0.6;"></i>
+      
+      <span>友链</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://s1.ax1x.com/2020/05/17/YRWsYT.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">蜗牛</div>
+        <div class="logo-desc">
+            
+            硕士 | 计算机科学与技术 | 网络安全
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/census " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-layer-group" style="position: absolute;left:50px" ></i>
+			      
+		          <span>统计</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-paper-plane" style="position: absolute;left:50px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tag" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-heartbeat"></i>
+			
+			清单
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/List/music " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/List/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>相册</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/List/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>视频</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-envelope"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tools" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-suitcase"></i>
+			
+			百宝箱
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Windows" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-desktop"></i>
+			
+			Windows
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-link"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/LuckyZmj/" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/LuckyZmj/" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021332.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">马哲</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        background-color: white;
+        width: 345px;
+        padding-left: 20px;
+        border-radius: 10px;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    
+    #toc-content {
+        height: calc(100vh - 300px);
+        overflow: scroll;
+
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+        bottom: 120px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/PicGo/">
+                                <span class="chip bg-color">PicGo</span>
+                            </a>
+                        
+                            <a href="/tags/GitHub%E5%9B%BE%E5%BA%8A/">
+                                <span class="chip bg-color">GitHub图床</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%85%AC%E5%85%B1%E7%9F%A5%E8%AF%86/" class="post-category">
+                                公共知识
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-03-15
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-04-25
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h2><p><strong>立德树人</strong>是教育之本</p>
+<p>民主党派成员最多的是<strong>民盟</strong></p>
+<p>新民主革命的动力包括：<strong>工人、农民、小资产阶级、民族阶级</strong></p>
+<p>马克思主义哲学是<strong>无产阶级世界观</strong></p>
+<p>我党把马列主义和中国实际相结合的最初成果：<strong>《中国社会各阶级的分析》、《湖南农民运动考察报告》</strong></p>
+<p>1956年4月，毛泽东同志提出<strong>“百花齐放，百家争鸣”</strong>是我国发展科学、繁荣文学艺术的方针</p>
+<p>习近平外交思想始终坚持<strong>实践第一</strong>的观点</p>
+<p><strong>古田会议</strong>决议了中心思想是要用<strong>无产阶级思想进行军队和党的建设</strong>（第九次党代表大会）</p>
+<p><strong>八七会议</strong>结束了<strong>陈独秀右倾投降主义</strong>在中央的统治，确立了<strong>土地革命和武装反抗国民党反动派</strong>的总方针，并发动了农民进行<strong>秋收起义</strong>（大革命失败后）</p>
+<p><strong>洛川会议</strong>为了动员一切力量抗日，并具体指定、建立党领导抗战的纲领和政府。</p>
+<p><strong>遵义会议</strong>是中国共产党<strong>第一次独立自主地运用马克思列宁主义解决自己路线</strong>、方针和政策的会议。<strong>挽救党、挽救红军、挽救新中国</strong>，是<strong>生死攸关转折点</strong>，提出红军应该采取<strong>积极防御</strong>的战略方针</p>
+<p><strong>邓小平</strong>提出了<strong>一国两制</strong></p>
+<p><strong>陈独秀</strong>上海创办<strong>《青年杂志》</strong>，后改名<strong>《新青年》</strong><u>（它也是中国共产党第一个公开性机关刊物</u>），迁往<strong>北京成为新文化运动的主要阵</strong>地，标志着<strong>新文化运动的兴起</strong>，口号为<strong>民主</strong>和<strong>科学</strong>，没有参加中共一大</p>
+<p><strong>董必武</strong>参加了上海兴业路一大会址<strong>纪念馆</strong>。为纪念馆写下了“<strong>作始也简，将毕也钜</strong>”。他<strong>出席了中共一大</strong></p>
+<p><strong>李大钊</strong>是中国传播马克思主义<strong>最早</strong>的革命先驱，被称为<strong>“引来天火的人”</strong>，没有参加中共一大     </p>
+<p><strong>《中国革命和中国共产党》</strong>一文中，毛泽东指出现阶段的敌人是<strong>帝国主义和封建地主阶级</strong>，主要任务也是干这两个，但<strong>最主要</strong>的是干帝国主义</p>
+<p>党员开除党籍，<strong>五年内</strong>不得重新入党</p>
+<p>生产实践、社会实践、科学实践，最基础的最重要的是<strong>生产实践</strong></p>
+<p><strong>两个务必</strong>是毛泽东提出来的，在<strong>七届二中</strong>全会（务必使同志们继续地保持谦虚、谨慎、不骄、不躁的作风，务必使同志们继续地保持艰苦奋斗的作风）</p>
+<p><strong>三湾改编</strong>首次提出官兵平等</p>
+<p><strong>毛泽东思想</strong>初步形成的标志是<strong>农村包围城市</strong></p>
+<p>1927年8月1号，八一<strong>南昌起义</strong>，让南昌获得了<strong>英雄城市</strong>的美誉</p>
+<h2 id="第二天"><a href="#第二天" class="headerlink" title="第二天"></a>第二天</h2><p><strong>十三大</strong>概况“<strong>一个中心、两个基本点</strong>”基本路线（一个中心，指以经济建设为中心；两<em>个基本点</em>，指坚持四项基本原则，坚持改革开放。），<strong>第一次</strong>比较系统地概述了<strong>社会主义初级阶段理论</strong>。</p>
+<p>十二大提中特</p>
+<p>十五大邓小平指导</p>
+<p>十六大三个代表</p>
+<p>十七大科学发展观</p>
+<p>十八大全面建成小康</p>
+<p>一大建党，二大立岗</p>
+<p>三大国共合作</p>
+<p>一大立党二立纲，三大国共要合作。<br>四大领导工农忙，五大批评陈独秀。<br>六大苏联求帮忙，南昌打响第一枪。<br>八七枪杆出政权，三湾军队要听党。<br>古田军队建新军，遵义军事与组织。<br>瓦統洛后。<br>毛六六论马🐎，七大确定毛指导。<br>七届二中转城市，八大主矛和建设。<br>十一三中要开放，十二小平提中特。<br>十三阶段路线定，南方三猫论本质。<br>十四目标在市场，十五小平成指导。<br>十六提出三代表，十七科学发展观。<br>十八科学成指导，十九走进新时代。</p>
+<p>党的一大在<strong>莫斯科召开</strong></p>
+<p><strong>陈独秀和李大钊</strong>都未参加一大</p>
+<p>我国<strong>对资本主义工商业</strong>进行社会改造的基本政策是<strong>“和平赎买”</strong></p>
+<p>科学发展观<strong>第一要义</strong>是发展，<strong>核心</strong>是以人为本，<strong>基本要求</strong>是全面协调可持续性，<strong>根本方法</strong>是统筹兼备</p>
+<p>马克思主义中国化的<strong>第一个重要理论</strong>成果是毛泽东思想</p>
+<p>我国经济已经由<strong>高速增长</strong>转向<strong>高质量发展</strong></p>
+<p><strong>红船精神</strong>是敢为人先的首创精神</p>
+<p><strong>长征精神</strong>是把全国人民和中华民族的根本利益看得高于一切</p>
+<p>意识反作用于物质的基本途径是<strong>实践</strong></p>
+<p>我国进行<strong>土地改革</strong>的基本原因是封建土地制度阻碍了农村经济和社会的发展</p>
+<p>社会主义的根本方向是<strong>消灭剥削、消灭两级分化</strong></p>
+<p>《实践论》《矛盾论》标志着毛泽东哲学思想形成</p>
+<p>邓小平邓小平<strong>南方谈话</strong>内容是<strong>‘三个有利于标志’</strong>（两力一平）（是否提高生产力、综合国力、生活水平）（黑猫白猫，能抓老鼠就好）</p>
+<p><strong>一国两制</strong>是邓小平提出来的</p>
+<p>十五大将邓小平理论写入党章</p>
+<p>《星星之火可以燎原》毛主席回复林彪的，林彪问毛主席红旗还需要打多久</p>
+<p>《论联合政府》是<strong>七大提出</strong>的，主要弄了<strong>三大作风</strong>，（理论和实践相结合，与人民群众紧密联系在一起，自我批评）</p>
+<p>实践决定意识，是因为实践具有<strong>直接现实性</strong>（通过实践，直接可以变成现实，比如盖一个房子，直接就有了）</p>
+<p>实践具有<strong>主观能动性</strong>，因为它是有目的有意思的去实践，这是和动物区分的，比如动物也会盖房子，它们没有目的和意识</p>
+<p>实践具有<strong>社会历史性</strong>，具有社会性受到历史条件的制约，比如你实践割麦子，有条件用机器，没条件用手</p>
+<p>意识是对客观世界的主观反映，意识的内容是客观的，表现形式是主观的</p>
+<p>所有的意识都要来源于客观存在</p>
+<p>无产阶级领导的<strong>中心问题</strong>是农民问题（农民也是最多的，主力军）</p>
+<p>外因要通过内因起作用（比如说你妈妈天天唠叨你好好学习，这是个外因，但如果你不听，也起不到作用）</p>
+<p>党的性质是先进性和纯洁性</p>
+<p>毛泽东最先提出马克思主义中国化（马66论马）</p>
+<p>社会的基本矛盾是<strong>社会发展的基本动力</strong>（社会基本矛盾包括：生生经上。生产力和生产关系，经济基础和上层建筑）</p>
+<p>生产力决定生产关系，生产关系反作用于生产力（反作用是两面的，好的促进，坏的抑制）</p>
+<p>生产力是人类改造自然的能力（人与自然），生产关系是人们之间的关系（人与人）</p>
+<p>马克思的两大发现：唯物史观、剩余价值学说</p>
+<p>红船精神包括：开天辟地、敢为人先的<strong>首创</strong>精神，坚定理想、百折不挠的<strong>奋斗</strong>精神，立党为公、忠诚为民的<strong>奉献</strong>精神</p>
+<h2 id="第三天"><a href="#第三天" class="headerlink" title="第三天"></a>第三天</h2><p>神州十号载人飞船，男的有<strong>聂海胜、张晓光</strong>，女的有<strong>王亚平</strong>，其中，聂海胜担任指令长</p>
+<p><strong>中华名族</strong>由危亡走向振兴的转折点是<strong>抗日战争的胜利</strong>（党的是遵义会议）</p>
+<p>主次矛盾与矛盾的主要方面（主次矛盾讲的是不同的事情，<strong>至少是两件事</strong>，比如发展面对经济、环境、人口问题等）（矛盾的主要方面是<strong>讲的一件事情</strong>，例如科技是把双刃剑）</p>
+<p>群众路线的<strong>核心</strong>是一切为了群众，一切依靠群众</p>
+<p>延安精神的<strong>核心</strong>是自力更生、艰苦奋斗</p>
+<p>中共七大还没有建国，八大规模大</p>
+<p>机械唯物主义（形而上学）（原子是事物的属性）</p>
+<p>朴素唯物主义（看到的）</p>
+<p>物质的唯一<strong>特性</strong>是客观实在性（不随人的意志改变），唯一<strong>属性</strong>是运动</p>
+<p>实践是认识的来源，一切认识归根到底是从实践中获得（实践是认识的唯一源泉）（但实践不是认识的唯一途径，也可通过视频、图片等认识）</p>
+<p>实践是认识的发展动力。实践中遇到的新问题需要新认识去解决，从而推动认识的发展</p>
+<p><strong>（前两个实践：先有实践。后面两个是先有认识。这样来做题）</strong></p>
+<p>实践是认识的目的，从实践中来，到实践中去，认识的目的是改造世界，到实践中去</p>
+<p>实践是检验真理的唯一标志</p>
+<p>毛泽东中国革命最后一个农村根据地是<strong>西柏坡</strong>（七届二中，提出了两个务必，进京赶考），像北平进发，进了北平<strong>香山</strong>，标志着中国革命重心从农村转向城市</p>
+<p>意识具有目的性和计划性（比如想上岸，一天计划做多少题）</p>
+<p>意识具有主动创造性（比如龙）</p>
+<p>意识能指导实践改造世界（指导是中心词，包含正确和错误，考的时候要都说）</p>
+<p><strong>意识对人体的生理活动具有调节和控制作用</strong>（比如笑一笑十年少）（望梅止渴）</p>
+<p>意识只有人有</p>
+<p>意识没有客观实在性，物质才有</p>
+<p>意识受到主题的影响（比如不同人看到同一个问题意识不同）</p>
+<p>发展是<strong>前进性和曲折性</strong>的统一</p>
+<p>发展有其<strong>自身的客观规律</strong>，不以人的意志为转移（种啥得啥）</p>
+<p>毛泽东思想和中国特色社会主义的区别：<strong>毛不改革，中特不革命</strong></p>
+<p>建设现代化经济体系，<strong>着力点</strong>放在实体经济上</p>
+<p>中华苏维埃第一次在<strong>瑞金</strong>召开</p>
+<p>一国两制 ”<strong>爱国者治港</strong>“</p>
+<p>毛泽东思想围绕的主题是<strong>革命和建设</strong></p>
+<p>邓小平理论主题是<strong>什么是社会主义，怎样建设社会主义</strong></p>
+<p>十九大报告：以<strong>人民安全</strong>为宗旨，以<strong>政治安全</strong>为根本</p>
+<p>三大规律：对立统一；质量互变规律；否定之否定规律</p>
+<p>辩证否定的实质是扬弃。矛盾是事物发展的源泉和动力。辩证否定是事物联系和发展的环节。</p>
+<p>大革命失败后，中国共产党建立的<strong>第一个农村根据地</strong>是<strong>井冈山</strong>根据地</p>
+<p>中国革命农村包围城市、武装夺取政权根本在于处理好<strong>土地革命、武装斗争、农村革命</strong>根据地之间的关系</p>
+<p>新民主主义的三大法宝：<strong>统一战线、武装斗争、党的建设</strong></p>
+<p>人民统一战线：<strong>工人阶级、农民阶级、名族资产阶级</strong>三者之间的关系</p>
+<p>抗战统一战线：<strong>进步势力、中间势力、顽固势力</strong></p>
+<p><strong>瓦窑堡会议</strong>确定了建立抗日民族统一战线方针</p>
+<p>1938年<strong>《论持久战》</strong>提出了<strong>民兵是胜利之本</strong></p>
+<p><strong>延安整风</strong>：反对主观主义以整顿<strong>学风</strong>（中心任务）、反对宗派主义以整顿<strong>党风</strong>、反对党八股文以整顿<strong>文风</strong></p>
+<p>意识对于客观事物的反映是<strong>主动的、有选择的</strong>（每个人看同一件事物的意识不同，比如蛋糕，艺术家看到的和普通人不一样）</p>
+<h2 id="第四天"><a href="#第四天" class="headerlink" title="第四天"></a>第四天</h2><p>十八届三中全会提出<strong>市场</strong>在配置中发挥决定性作用（2013年习总书记主持）</p>
+<p>十八届四中（2014）提出了依法治国</p>
+<p>十八大（一选举，二宪法，三改革，四法律，五经济，六党建）</p>
+<p>毛泽东思想灵魂包括：实事求是（根本点，出发点），群众路线（工作路线），独立自主（立足点）。</p>
+<p><img src="./%E9%A9%AC%E5%93%B211/image-20230411165003291.png" alt="image-20230411165003291"></p>
+<p>本本主义也是教条主义，就是做什么事情都不从实际出发，生搬硬套</p>
+<p>在党的纪律中，<strong>政治纪律</strong>最重要、最根本、最关键</p>
+<p><strong>画梅不能止渴反映了</strong>观念东西不能代替物质东西</p>
+<p>精神和物质的<strong>同一性</strong>，这个是你认为这个世界是否是可知的，如果你认为是可知的，就是同一的，这也是可知论</p>
+<p>精神对物质的<strong>相对独立性</strong>：意识可能超前，也可能落后</p>
+<p>精神可以转化成物质，通过实践</p>
+<p>小康：邓小平提出放入国家。十二大提出，十六大建设，十八大建成</p>
+<p>家庭是道德建设的<strong>起点</strong>，学校是道德建设的<strong>阵地</strong></p>
+<p><img src="./%E9%A9%AC%E5%93%B2/image-20230412130413064.png" alt="image-20230412130413064"></p>
+<p><strong>经济特区：生下三头猪（深圳、厦门、汕头、珠海）去海南度假，结果去了新疆喀什（kā shí）霍尔果斯</strong></p>
+<p><img src="./%E9%A9%AC%E5%93%B2/image-20230412131157200.png" alt="image-20230412131157200"></p>
+<p>伟大载人航天精神：淡泊名利，默默奉献</p>
+<p>实践高于理论认识，是因为实践具有直接现实性</p>
+<h2 id="第五天"><a href="#第五天" class="headerlink" title="第五天"></a>第五天</h2><p><strong>主要矛盾</strong>对事物发展起决定性作用</p>
+<p><img src="./%E9%A9%AC%E5%93%B2/image-20230412153659558.png" alt="image-20230412153659558"></p>
+<p><strong>中国精神</strong>包括民族精神（核心爱国主义）和时代精神（核心改革创新）</p>
+<p><strong>爱国主义</strong>始终是把中华民族坚强团结在一起的精神力量，<strong>改革创新</strong>始终是鞭策我们在改革开放中与时俱进的精神力量</p>
+<p><img src="./%E9%A9%AC%E5%93%B2/image-20230412153725939.png" alt="image-20230412153725939"></p>
+<p><strong>整体与部分关系</strong>：1.整体居于<strong>主导地位</strong>              2.关键部分对整体起决定性作用         3.整体是各部分的有机构成，具有部分没有的功能（比如说钟表，有计时功能，但是拆开后每个指针没有该功能）</p>
+<p>中国共产党主题就是为了实现中华民族伟大复兴</p>
+<p>实事求是的“是”为规律性</p>
+<p><img src="./%E9%A9%AC%E5%93%B2/image-20230412153736095.png" alt="image-20230412153736095"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">蜗牛</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://www.luckyzmj.cn/posts/7a46f93c.html">http://www.luckyzmj.cn/posts/7a46f93c.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">蜗牛</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/PicGo/">
+                                    <span class="chip bg-color">PicGo</span>
+                                </a>
+                            
+                                <a href="/tags/GitHub%E5%9B%BE%E5%BA%8A/">
+                                    <span class="chip bg-color">GitHub图床</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,twitter,facebook,google,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/null" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/null" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    .v[data-class="v"] .vwrap .vheader .vinput {
+      width: 32%;
+      border-bottom: 1px dashed #dedede;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
+//这里要换行
+new Valine({
+        el: '#vcomments',
+        appId: 'Ucrxxxxxxxxxxxxxxxx-xxxxsz',
+        appKey: 'zPsLxxxxxxxxxxxxxxerLmd',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'monsterid',
+        pageSize: '10',
+        lang: 'zh-CN',
+        placeholder: '留下你的足迹..',
+        meta: ["nick", "mail", "link"],
+        recordIP: 'true' === 'true',
+        enableQQ: 'monsterid',
+        requiredFields: ["46606772953bed0812789d6dc955614e"],
+        master: ["46606772953bed0812789d6dc955614e"],
+        friends: ["cb3e577ff029d6073400d5557effd41f", ""],
+        tagMeta: ["博主", "小伙伴", "访客"],
+        metaPlaceholder: metaPlaceholder,
+
+    });
+
+    document.body.addEventListener('click', function(e) {
+        if (e.target.classList.contains('vsubmit')) {
+            const email = document.querySelector('input[type=email]');
+            const nick = document.querySelector('input[name=nick]');
+            const reg = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+            if (!email.value || !nick.value || !reg.test(email.value)) {
+                const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+                const vmark = document.querySelector('.vmark');
+                vmark.innerHTML = str;
+                vmark.style.display = 'block';
+
+                e.stopPropagation();
+
+                setTimeout(function() {
+                    vmark.style.display = 'none';
+                    vmark.innerHTML = '';
+                }, 2500);
+            }
+        }
+        }, true);
+</script>
+
+
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/4b3510a4.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020120.jpg" class="responsive-img" alt="文字背景粒子特效">
+                        
+                        <span class="card-title">文字背景粒子特效</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一款jQuery+CSS3的文字背景粒子动画特效，一共6种粒子效果，每种文字背景的粒子效果都不同，有漂浮的有坠落的等等。 
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF%E7%AF%87/" class="post-category">
+                                    前端篇
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/jQuery-CSS3/">
+                        <span class="chip bg-color">jQuery+CSS3</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%B2%92%E5%AD%90%E7%89%B9%E6%95%88/">
+                        <span class="chip bg-color">粒子特效</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/19d2a4e6.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928011708.jpg" class="responsive-img" alt="阿里云服务器部署Hexo博客">
+                        
+                        <span class="card-title">阿里云服务器部署Hexo博客</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            相信大部分人使用Hexo搭建个人博客都会部署到一些免费的代码托管平台上，但这些免费的平台总是差强人意，今天记录下如何在自己的云服务器上搭建Hexo博客。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/" class="post-category">
+                                    博客篇
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">博客</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/">
+                        <span class="chip bg-color">阿里云</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 蜗牛<br />'
+            + '文章作者: 蜗牛<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="1776127550"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">蜗牛</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">22.5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "10";
+                    var startDate = "25";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://www.beian.miit.gov.cn/" target="_blank">闽ICP备xxxxxxx号-1</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/LuckyZmj/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:16463223@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=16463223" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 16463223" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="6788560391" class="tooltipped" target="_blank" data-tooltip="关注我的微博: 6788560391" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?aaa6c944b0ed07922901d7fc571a171d";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+<!-- 深色模式按钮 -->
+    <script>
+        if (localStorage.getItem('dark') === '1') {
+        document.body.classList.add('dark');
+        }
+        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+        document.body.classList.add('dark');
+        } 
+        else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+        }
+    </script>
+    <a onclick="switchNightMode()" id="sma">
+        <i class="fas fa-lightbulb" id="nightMode" aria-hidden="true"></i>
+    </a>
+
+    <!-- 天气接口控件   -->
+    
+        <script type="text/javascript">
+        WIDGET = {FID: 'zLkJSQpqsh'}
+        </script>
+    <!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> -->
+
+    <script type="text/javascript">
+      var windowWidth = $(window).width();
+      if (windowWidth > 768) {
+          document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+      }
+    </script>
+    
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "4xxxxxxxe"
+        });
+        daovoice('update');
+    </script>
+    
+
+	
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
