@@ -40,9 +40,9 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="蜗牛" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="蜗牛" type="application/atom+xml">
 </head>
 
 
@@ -640,12 +640,12 @@
                                 <span class="chip bg-color">Hexo</span>
                             </a>
                         
-                            <a href="/tags/Github/">
-                                <span class="chip bg-color">Github</span>
-                            </a>
-                        
                             <a href="/tags/%E5%8D%9A%E5%AE%A2/">
                                 <span class="chip bg-color">博客</span>
+                            </a>
+                        
+                            <a href="/tags/Github/">
+                                <span class="chip bg-color">Github</span>
                             </a>
                         
                     </div>
@@ -1113,9 +1113,9 @@ prism_plugin:
 <h4 id="2-20-修改社交链接"><a href="#2-20-修改社交链接" class="headerlink" title="2.20 修改社交链接"></a>2.20 修改社交链接</h4><p>在主题的 <code>_config.yml</code> 文件中，默认支持 <code>QQ</code>、<code>GitHub</code> 和邮箱等的配置，你可以在主题文件的 <code>/layout/_partial/social-link.ejs</code> 文件中，新增、修改你需要的社交链接地址，增加链接可参考如下代码：</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html">&lt;% if (theme.socialLink.github) { %&gt;
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&lt;%= theme.socialLink.github %&gt;<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tooltipped<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span> <span class="token attr-name">data-tooltip</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>访问我的GitHub<span class="token punctuation">"</span></span> <span class="token attr-name">data-position</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>top<span class="token punctuation">"</span></span> <span class="token attr-name">data-delay</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fab fa-github<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
-&lt;% } %&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fab fa-github<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation"><!--</span-->i</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation"><!--</span-->a</span><span class="token punctuation">&gt;</span></span>
+&lt;% } %&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></span></span></code></pre>
 
 <p>其中，社交图标（如：<code>fa-github</code>）你可以在 <code>Font Awesome</code> 中搜索找到。以下是常用社交图标的标识，供你参考：</p>
 <ul>
@@ -1321,7 +1321,7 @@ tags:
     <span class="token property">color</span><span class="token punctuation">:</span> #34495e<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="2-25-修改-banner-图和文章特色图"><a href="#2-25-修改-banner-图和文章特色图" class="headerlink" title="2.25 修改 banner 图和文章特色图"></a>2.25 修改 banner 图和文章特色图</h4><p>你可以直接在 <code>/source/medias/banner</code> 文件夹中更换你喜欢的 <code>banner</code> 图片，主题代码中是每天动态切换一张，只需 7 张即可。如果你会 <code>JavaScript</code> 代码，可以修改成你自己喜欢切换逻辑，如：随机切换等，banner 切换的代码位置在 <code>/layout/_partial/bg-cover-content.ejs</code> 文件的 <code>&lt;script&gt;&lt;/script&gt;</code> 代码中：</p>
+<h4 id="2-25-修改-banner-图和文章特色图"><a href="#2-25-修改-banner-图和文章特色图" class="headerlink" title="2.25 修改 banner 图和文章特色图"></a>2.25 修改 banner 图和文章特色图</h4><p>你可以直接在 <code>/source/medias/banner</code> 文件夹中更换你喜欢的 <code>banner</code> 图片，主题代码中是每天动态切换一张，只需 7 张即可。如果你会 <code>JavaScript</code> 代码，可以修改成你自己喜欢切换逻辑，如：随机切换等，banner 切换的代码位置在 <code>/layout/_partial/bg-cover-content.ejs</code> 文件的 <code><script></script></code> 代码中：</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css">$<span class="token punctuation">(</span><span class="token string">'.bg-cover'</span><span class="token punctuation">)</span>.<span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'background-image'</span><span class="token punctuation">,</span> <span class="token string">'url(/medias/banner/'</span> + new <span class="token function">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span>.<span class="token function">getDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> + <span class="token string">'.jpg)'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>在 <code>/source/medias/featureimages</code> 文件夹中默认有 24 张特色图片，你可以再增加或者减少，并需要在 <code>_config.yml</code> 做同步修改。</p>
@@ -1414,12 +1414,12 @@ tags:
                                     <span class="chip bg-color">Hexo</span>
                                 </a>
                             
-                                <a href="/tags/Github/">
-                                    <span class="chip bg-color">Github</span>
-                                </a>
-                            
                                 <a href="/tags/%E5%8D%9A%E5%AE%A2/">
                                     <span class="chip bg-color">博客</span>
+                                </a>
+                            
+                                <a href="/tags/Github/">
+                                    <span class="chip bg-color">Github</span>
                                 </a>
                             
                         </div>
@@ -1933,12 +1933,12 @@ new Valine({
                         <span class="chip bg-color">Hexo</span>
                     </a>
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
-                    </a>
-                    
                     <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/">
                         <span class="chip bg-color">阿里云</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">博客</span>
                     </a>
                     
                 </div>
@@ -1991,12 +1991,12 @@ new Valine({
                         <span class="chip bg-color">Hexo</span>
                     </a>
                     
-                    <a href="/tags/Github/">
-                        <span class="chip bg-color">Github</span>
-                    </a>
-                    
                     <a href="/tags/%E5%8D%9A%E5%AE%A2/">
                         <span class="chip bg-color">博客</span>
+                    </a>
+                    
+                    <a href="/tags/Github/">
+                        <span class="chip bg-color">Github</span>
                     </a>
                     
                 </div>
@@ -2236,7 +2236,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">22.5k</span>&nbsp;字
+                class="white-color">22.7k</span>&nbsp;字
             
             
             
