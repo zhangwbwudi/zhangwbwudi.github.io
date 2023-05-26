@@ -573,21 +573,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-25
+                    2023-05-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    93
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -605,19 +605,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p><img src="/../images/typora-user-images/image-20230320160459329.png" alt="image-20230320160459329"></p>
+                <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><img src="/../images/typora-user-images/image-20230320160459329.png" alt="image-20230320160459329"></p>
 <p><img src="/../images/typora-user-images/image-20230320160616110.png" alt="image-20230320160616110"></p>
 <p><img src="/../images/typora-user-images/image-20230320163748877.png" alt="image-20230320163748877"></p>
 <p><img src="/../images/typora-user-images/image-20230320171201988.png" alt="image-20230320171201988"></p>
 <p>添加事务后均是主库，在没添加事务的时候插入是主，查询是从</p>
-<h1 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h1><p><img src="/../images/typora-user-images/image-20230320171910169.png" alt="image-20230320171910169"></p>
+<h2 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h2><p><img src="/../images/typora-user-images/image-20230320171910169.png" alt="image-20230320171910169"></p>
 <p>springboot只需要在配置文件里配置一下，这里配置数据源</p>
 <p><img src="/../images/typora-user-images/image-20230320172118654.png" alt="image-20230320172118654"></p>
 <p>只需要配置一下，哪个数据源是读得，那个是写的</p>
 <p><img src="/../images/typora-user-images/image-20230320172207339.png" alt="image-20230320172207339"></p>
 <p><img src="/../images/typora-user-images/image-20230320172239900.png" alt="image-20230320172239900"></p>
 <p>配置负载均衡</p>
-<h1 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h1><p>docker</p>
+<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>docker</p>
 <p><img src="/../images/typora-user-images/image-20230415110726860.png" alt="image-20230415110726860"></p>
 <p>这是映射到主机</p>
 <p><img src="/../images/typora-user-images/image-20230415110756798.png" alt="image-20230415110756798"></p>
@@ -626,6 +626,79 @@
 <p><img src="/../images/typora-user-images/image-20230415111405205.png" alt="image-20230415111405205"></p>
 <p><img src="/../images/typora-user-images/image-20230415111503055.png" alt="image-20230415111503055"></p>
 <p><img src="/../images/typora-user-images/image-20230415113116725.png" alt="image-20230415113116725"></p>
+<h2 id="主键生成策略"><a href="#主键生成策略" class="headerlink" title="主键生成策略"></a>主键生成策略</h2><p>雪花</p>
+<p><img src="/../images/typora-user-images/image-20230521222742697.png" alt="image-20230521222742697"></p>
+<h2 id="水平分库分表策略"><a href="#水平分库分表策略" class="headerlink" title="水平分库分表策略"></a>水平分库分表策略</h2><p><img src="/../images/typora-user-images/image-20230521223732527.png" alt="image-20230521223732527"></p>
+<p>如上图所示，定义好数据库的放置，这里是通过userid，偶数放在1号库，奇数放在2号库。定义完成后再定义每个库中表的策略，这里是根据cid进行划分，偶数放在1号表，奇数放在2号表。</p>
+<h2 id="公共表"><a href="#公共表" class="headerlink" title="公共表"></a>公共表</h2><blockquote>
+<p>何为公共表</p>
+</blockquote>
+<p>不长变的，经常需要做关联工作，比如地表沉降系统中的传感器节点信息表。（要在每个库中创建同样一张表）</p>
+<p>这里也是通过shardingsphere做的，在papertie里设置公共表，如下</p>
+<p><img src="/../images/typora-user-images/image-20230521224724564.png" alt="image-20230521224724564"></p>
+<p>这样的话，插入和删除都是对每个数据的公共表同时操作。</p>
+<h2 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h2><ol>
+<li>修改这个文件</li>
+</ol>
+<p><img src="/../images/typora-user-images/image-20230521225102898.png" alt="image-20230521225102898"></p>
+<ol start="2">
+<li>改端口号</li>
+</ol>
+<p><img src="/../images/typora-user-images/image-20230521225144710.png" alt="image-20230521225144710"></p>
+<ol start="3">
+<li>修改文件路径（存数据的）</li>
+</ol>
+<h2 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h2><blockquote>
+<p>TCC</p>
+</blockquote>
+<p><img src="/../images/typora-user-images/image-20230525102454126.png" alt="image-20230525102454126"></p>
+<p><img src="/../images/typora-user-images/image-20230525104011702.png" alt="image-20230525104011702"></p>
+<p><img src="/../images/typora-user-images/image-20230525104033057.png" alt="image-20230525104033057"></p>
+<p>分布式事务可以通过TCC来解决，分别是上面三个单词的缩写。使用TCC需要给表加上冗余列，例如上述订单表和库存表，需要在订单表中添加预增金额和状态，库存服务里需要添加冻结库存。</p>
+<p>在执行TCC时候，Try是对资源进行锁定，在这一步预增金额这里设置一下（比如买10瓶水，一瓶水3块钱，这里的预增金额就设置为30，把状态改为初始），库存表也是这样（因为要取，所以库存要减少，这里是冻结库存设置为10，因为要取10瓶水）。</p>
+<p>Confirm进行提交，这里如果提交成果，就把上面的预增金额和冻结库存给真正处理。状态设置为完成。</p>
+<p>cancel取消，取消的话放弃预设金额和冻结库存，状态码设置为取消。</p>
+<h2 id="分布式ID"><a href="#分布式ID" class="headerlink" title="分布式ID"></a>分布式ID</h2><p>可以使用UUID和雪花算法，但一般使用的是雪花算法。</p>
+<blockquote>
+<p>原因</p>
+</blockquote>
+<p> UUID 生成的是一个无序的字符串（影响查询效率）</p>
+<h3 id="雪花算法（SnowFlake）"><a href="#雪花算法（SnowFlake）" class="headerlink" title="雪花算法（SnowFlake）"></a>雪花算法（SnowFlake）</h3><p>雪花算法的原理就是生成一个的 64 位比特位的 long 类型的唯一 id。</p>
+<ul>
+<li>最高 1 位固定值 0，因为生成的 id 是正整数，如果是 1 就是负数了。</li>
+<li>接下来 41 位存储毫秒级时间戳，2^41/(1000<em>60</em>60<em>24</em>365)=69，大概可以使用 69 年。</li>
+<li>再接下 10 位存储机器码，包括 5 位 datacenterId 和 5 位 workerId。最多可以部署 2^10=1024 台机器。</li>
+<li>最后 12 位存储序列号。同一毫秒时间戳时，通过这个递增的序列号来区分。即对于同一台机器而言，同一毫秒时间戳下，可以生成 2^12=4096 个不重复 id。</li>
+<li>可以将雪花算法作为一个单独的服务进行部署，然后需要全局唯一 id 的系统，请求雪花算法服务获取 id 即可。</li>
+</ul>
+<p>对于每一个雪花算法服务，需要先指定 10 位的机器码，这个根据自身业务进行设定即可。例如机房号+机器号，机器号+服务号，或者是其他可区别标识的 10 位比特位的整数值都行。<br><img src="/../images/typora-user-images/format,png" alt="img"></p>
+<blockquote>
+<p>具体网址</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jiaomubai/article/details/124385324?spm=1001.2014.3001.5506">https://blog.csdn.net/jiaomubai/article/details/124385324?spm=1001.2014.3001.5506</a></p>
+<h2 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h2><p>分库分表后分页查询比较麻烦，比如差10条，一般从第一张表里查10条，再从第二章表里查10条，然后再排序获取。</p>
+<h2 id="跨库join"><a href="#跨库join" class="headerlink" title="跨库join"></a>跨库join</h2><blockquote>
+<p>方案一</p>
+</blockquote>
+<p>shardingsphere支持夸库join查询</p>
+<blockquote>
+<p>方案二</p>
+</blockquote>
+<p>先查一个字段，从这里获得关联的第二个字段，再通过第二个字段查</p>
+<blockquote>
+<p>方案三</p>
+</blockquote>
+<p>增加冗余列，把链接这个直接作为冗余字段存储</p>
+<h2 id="主从复制的问题"><a href="#主从复制的问题" class="headerlink" title="主从复制的问题"></a>主从复制的问题</h2><p>使用shardingsphere进行主从复制，默认是查走从，插找主，但是主和从节点的数据同步是需要一些时间的，如果我们查最新插入的数据可能会导致查不到（因为数据还没有同步过去）</p>
+<p>以地表沉降系统为例，查询最新的数据可能会导致查不到，原因如上。</p>
+<blockquote>
+<p>方案一</p>
+</blockquote>
+<p>可以设置查询最新的消息都走主库</p>
+<blockquote>
+<p>方案二</p>
+</blockquote>
+<p>在插入数据的时候同时插入缓存一个标志，比如设置60秒过期（根据业务定，差不多可以主从同步的时间），再查的时候先判断这个缓存还有没，如果有则查主，如果没有（说明已经主从辅助完成了）查从。</p>
 
                 
             </div>
@@ -1251,19 +1324,19 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/7f1ae6do.html">
+                <a href="/posts/7f1ae090.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020939.jpg" class="responsive-img" alt="linux">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020120.jpg" class="responsive-img" alt="java基础">
                         
-                        <span class="card-title">linux</span>
+                        <span class="card-title">java基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            linux常用命令
+                            面试中查缺补漏，部分java基础知识
                         
                     </div>
                     <div class="publish-info">
@@ -1274,8 +1347,8 @@ new Valine({
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/linux/" class="post-category">
-                                    linux
+                            <a href="/categories/java/" class="post-category">
+                                    java
                                 </a>
                             
                             
@@ -1382,7 +1455,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">41.9k</span>&nbsp;字
+                class="white-color">43.2k</span>&nbsp;字
             
             
             

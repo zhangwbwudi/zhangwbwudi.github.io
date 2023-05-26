@@ -672,14 +672,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-04
+                    2023-05-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.7k
                 </div>
                 
 
@@ -836,12 +836,30 @@ boundValueOperations<span class="token punctuation">.</span><span class="token f
 <h2 id="断开通信除了四次挥手还有什么方式？"><a href="#断开通信除了四次挥手还有什么方式？" class="headerlink" title="断开通信除了四次挥手还有什么方式？"></a>断开通信除了四次挥手还有什么方式？</h2><p>  如果主机需要尽快关闭连接（或连接超时，或端口、主机不可达）时，发送RST包（RST表示复位）强制关闭TCP连接。</p>
 <p>发送RST包关闭连接时，可以丢弃缓存区的包直接发送RST包，而接收端收到RST包后，也不必发送ACK包来确认。</p>
 <h2 id="线程池场景"><a href="#线程池场景" class="headerlink" title="线程池场景"></a>线程池场景</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dt4y1i7Gt/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc%EF%BC%88B%E7%AB%99%EF%BC%89">https://www.bilibili.com/video/BV1dt4y1i7Gt/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc（B站）</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ca411B78i/?spm_id_from=333.880.my_history.page.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc">https://www.bilibili.com/video/BV1ca411B78i/?spm_id_from=333.880.my_history.page.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc</a></p>
 <p>报警那块</p>
 <p><img src="/../images/typora-user-images/image-20230321084249317.png" alt="image-20230321084249317"></p>
 <p>我是把每个传感器作为一块子的，每一个子的都用线程池</p>
 <p>这里设置了一个计数器来阻止主线程继续，让主线程等线程池中弄完再走</p>
 <p>CountDownLatch</p>
 <p>这个是同步工具类中的计数器，有几组（我这里是传感器的数量（这里就16了））设置初始值为多少</p>
+<blockquote>
+<p>池化思想</p>
+</blockquote>
+<p>线程池、数据库连接池、字符串常量池都是这样，池化思想，目的是为了提高资源利用率</p>
+<blockquote>
+<p>常见知识点</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/tumu6889/article/details/125257712">https://blog.csdn.net/tumu6889/article/details/125257712</a></p>
+<blockquote>
+<p>阻塞队列</p>
+</blockquote>
+<p><img src="/../images/typora-user-images/image-20230523110757497.png" alt="image-20230523110757497"></p>
+<blockquote>
+<p>线程池方法</p>
+</blockquote>
+<p><img src="/../images/typora-user-images/image-20230523112337372.png" alt="image-20230523112337372"></p>
+<p>这些本质也是调用的threadpool</p>
 
                 
             </div>
@@ -1414,19 +1432,19 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/7f1ae6ui.html">
+                <a href="/posts/7a46f93c.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020832.jpg" class="responsive-img" alt="集合常用api">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021332.jpg" class="responsive-img" alt="马哲">
                         
-                        <span class="card-title">集合常用api</span>
+                        <span class="card-title">马哲</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            集合中常用的api，方便编程用
+                            积累基础知识
                         
                     </div>
                     <div class="publish-info">
@@ -1437,8 +1455,8 @@ new Valine({
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%85%AC%E5%85%B1%E7%9F%A5%E8%AF%86/" class="post-category">
+                                    公共知识
                                 </a>
                             
                             
@@ -1464,22 +1482,22 @@ new Valine({
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/posts/7a46f93c.html">
+                <a href="/posts/7f1ae999.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021332.jpg" class="responsive-img" alt="马哲">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928011708.jpg" class="responsive-img" alt="秋招">
                         
-                        <span class="card-title">马哲</span>
+                        <span class="card-title">秋招</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            积累基础知识
+                            面试常问知识总结
                         
                     </div>
                     <div class="publish-info">
@@ -1490,14 +1508,15 @@ new Valine({
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%85%AC%E5%85%B1%E7%9F%A5%E8%AF%86/" class="post-category">
-                                    公共知识
+                            <a href="/categories/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1692,7 +1711,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">41.9k</span>&nbsp;字
+                class="white-color">43.2k</span>&nbsp;字
             
             
             

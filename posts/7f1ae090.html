@@ -672,7 +672,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-04
+                    2023-05-24
                 </div>
                 
 
@@ -898,6 +898,8 @@ s2 <span class="token operator">=</span> <span class="token keyword">new</span> 
 <p><strong>3、</strong> synchronized 不需要手动获取锁和释放锁，使用简单，发生异常会自动释放锁，不会造成死锁；而 lock 需要自己加锁和释放锁，如果使用不当没有 unLock()去释放锁就会造成死锁。</p>
 <p><strong>4、</strong> 通过 Lock 可以知道有没有成功获取锁，而 synchronized 却无法办到。</p>
 <p>5、 synchronized只支持非公平锁,lock支持非公平锁和公平锁;</p>
+<h2 id="synchronized原理"><a href="#synchronized原理" class="headerlink" title="synchronized原理"></a>synchronized原理</h2><p><img src="/../images/typora-user-images/image-20230524095109179.png" alt="image-20230524095109179"></p>
+<p><img src="/../images/typora-user-images/image-20230524095302561.png" alt="image-20230524095302561"></p>
 <h2 id="什么是Vector"><a href="#什么是Vector" class="headerlink" title="什么是Vector"></a>什么是Vector</h2><p>Vector与ArrayList一样，也是通过数组实现的，不同的是它支持线程的同步，即某一时刻只有一个线程能够写Vector，避免多线程同时写而引起的不一致性，但实现同步需要很高的花费，访问它比访问ArrayList慢很多</p>
 <p>ArrayList是最常用的List实现类，内部是通过数组实现的，它允许对元素进行快速随机访问。当从ArrayList的中间位置插入或者删除元素时，需要对数组进行复制、移动、代价比较高。因此，它适合随机查找和遍历，不适合插入和删除。ArrayList的缺点是每个元素之间不能有间隔。</p>
 <h2 id="抽象类必须要有抽象方法吗？"><a href="#抽象类必须要有抽象方法吗？" class="headerlink" title="抽象类必须要有抽象方法吗？"></a>抽象类必须要有抽象方法吗？</h2><p>不必须</p>
@@ -1481,6 +1483,10 @@ s2 <span class="token operator">=</span> <span class="token keyword">new</span> 
 <span class="token class-name">CallableStatement</span> cstmt <span class="token operator">=</span> con<span class="token punctuation">.</span><span class="token function">prepareCall</span><span class="token punctuation">(</span><span class="token string">"{CALL demoSp(? , ?)}"</span><span class="token punctuation">)</span> <span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>4、执行SQL语句；5、遍历结果集；6、处理异常，关闭JDBC对象资源。</p>
+<h2 id="threadLocal应用场景"><a href="#threadLocal应用场景" class="headerlink" title="threadLocal应用场景"></a>threadLocal应用场景</h2><blockquote>
+<p>链接数据库</p>
+</blockquote>
+<p><img src="/../images/typora-user-images/image-20230524112414644.png" alt="image-20230524112414644"></p>
 
                 
             </div>
@@ -2053,19 +2059,19 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/7f1ae6do.html">
+                <a href="/posts/7f1ae6sd.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020939.jpg" class="responsive-img" alt="linux">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928013951.jpg" class="responsive-img" alt="ShardingSphere">
                         
-                        <span class="card-title">linux</span>
+                        <span class="card-title">ShardingSphere</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            linux常用命令
+                            mysq分库分表
                         
                     </div>
                     <div class="publish-info">
@@ -2076,8 +2082,8 @@ new Valine({
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/linux/" class="post-category">
-                                    linux
+                            <a href="/categories/mysql/" class="post-category">
+                                    mysql
                                 </a>
                             
                             
@@ -2106,19 +2112,19 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/7f1ae6dh.html">
+                <a href="/posts/7f1ae6do.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021744.jpg" class="responsive-img" alt="mysql">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020939.jpg" class="responsive-img" alt="linux">
                         
-                        <span class="card-title">mysql</span>
+                        <span class="card-title">linux</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            面试中查缺补漏，部分mysql基础知识
+                            linux常用命令
                         
                     </div>
                     <div class="publish-info">
@@ -2129,8 +2135,8 @@ new Valine({
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/mysql/" class="post-category">
-                                    mysql
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
                                 </a>
                             
                             
@@ -2331,7 +2337,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">41.9k</span>&nbsp;字
+                class="white-color">43.2k</span>&nbsp;字
             
             
             
