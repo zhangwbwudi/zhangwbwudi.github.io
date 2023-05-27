@@ -672,21 +672,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-23
+                    2023-05-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    10 分
                 </div>
                 
 
@@ -783,7 +783,13 @@ boundValueOperations<span class="token punctuation">.</span><span class="token f
 </ol>
 <p>type 结果值从好到坏依次是：</p>
 <p>system &gt; const &gt; eq_ref &gt; ref &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL</p>
+<p><img src="/../images/typora-user-images/image-20230527193514898.png" alt="image-20230527193514898"></p>
 <p>一般来说，得保证查询至少达到 range 级别，最好能达到 ref 级别，否则就可能出现性能问题。</p>
+<p><img src="/../images/typora-user-images/image-20230527193537509.png" alt="image-20230527193537509"></p>
+<blockquote>
+<p>解析</p>
+</blockquote>
+<p>反映用什么样的方式查询数据的</p>
 <ol start="2">
 <li>possible_keys: SQL查询时用到的索引。<br>可以看到，没加索引时，possible_keys 的值为 NULL，加了索引后的值为 address，即用到了索引address(索引默认为(column_list)中的第一个列的名字).</li>
 </ol>
@@ -794,6 +800,8 @@ boundValueOperations<span class="token punctuation">.</span><span class="token f
 <li>rows 显示MySQL认为它执行查询时必须检查的行数<br>可以看到，没加索引时，rows 的值为17，即数据表student中所有数据，说明没加索引时的SQL查询是全表扫描；</li>
 </ol>
 <p>加了索引后，rows 的值为6，数据库表中address以“北京市”开头的一共也就6条，SQL在执行查询操作时，一共也检查了6行，不必进行全表扫描查询，可以很容易得出结论：加索引的SQL查询性能远高于不加索引的情况。</p>
+<p>5）extra</p>
+<p><img src="/../images/typora-user-images/image-20230527194416449.png" alt="image-20230527194416449"></p>
 <h2 id="模糊查询不走怎么解决"><a href="#模糊查询不走怎么解决" class="headerlink" title="模糊查询不走怎么解决"></a>模糊查询不走怎么解决</h2><ol>
 <li><p>通过业务手段避免，举个实际栗子，博主之前做了一个汽车仓储项目，需求要求汽车表查询时候，车架号要有模糊查询操作，但是实际上对于车架号这个东西有个特殊的业务属性，就是车架号的后六位，基本可以在全省锁定到某一台车，全国不会超过三台车。所以业务人员在实际使用系统的时候，也只是输入后六位进行模糊查询，因此，在表设计的时候就将车架号字段<strong>冗余了一个字段</strong>，用于存储倒序的车架号，在进行模糊查询的时候，使用这个倒序字段进行<strong>右模糊查询</strong>，从而达到走索引的目的。有些时候，通过业务手段是可以达到一个优化要求的。</p>
 </li>
@@ -844,6 +852,10 @@ boundValueOperations<span class="token punctuation">.</span><span class="token f
 <p>CountDownLatch</p>
 <p>这个是同步工具类中的计数器，有几组（我这里是传感器的数量（这里就16了））设置初始值为多少</p>
 <blockquote>
+<p>CountDownLatch原理</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/95835099">https://zhuanlan.zhihu.com/p/95835099</a></p>
+<blockquote>
 <p>池化思想</p>
 </blockquote>
 <p>线程池、数据库连接池、字符串常量池都是这样，池化思想，目的是为了提高资源利用率</p>
@@ -855,11 +867,51 @@ boundValueOperations<span class="token punctuation">.</span><span class="token f
 <p>阻塞队列</p>
 </blockquote>
 <p><img src="/../images/typora-user-images/image-20230523110757497.png" alt="image-20230523110757497"></p>
+<p><img src="/../images/typora-user-images/image-20230527201623595.png" alt="image-20230527201623595"></p>
+<p><img src="/../images/typora-user-images/image-20230527201705475.png" alt="image-20230527201705475"></p>
 <blockquote>
 <p>线程池方法</p>
 </blockquote>
 <p><img src="/../images/typora-user-images/image-20230523112337372.png" alt="image-20230523112337372"></p>
 <p>这些本质也是调用的threadpool</p>
+<h2 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h2><blockquote>
+<p>node</p>
+</blockquote>
+<p><img src="/../images/typora-user-images/image-20230527210346149.png" alt="image-20230527210346149"></p>
+<p>有一个内部类node，如上图所示，每个node都有prev、next、waitstatus（记录上一个节点是谁，下个节点，状态（这个状态是上面那两个标志exclusive、signal））</p>
+<p><img src="/../images/typora-user-images/image-20230527210659192.png" alt="image-20230527210659192"></p>
+<p>还有这一个属性，记录当前绑定的线程</p>
+<blockquote>
+<p>头和尾节点</p>
+</blockquote>
+<p><img src="/../images/typora-user-images/image-20230527210936511.png" alt="image-20230527210936511"></p>
+<blockquote>
+<p>state</p>
+</blockquote>
+<p><img src="/../images/typora-user-images/image-20230527211520544.png" alt="image-20230527211520544"></p>
+<p>只要不是0，说明拿到锁</p>
+<blockquote>
+<p>结构图</p>
+</blockquote>
+<p><img src="/../images/typora-user-images/image-20230527211050638.png" alt="image-20230527211050638"></p>
+<h2 id="Renntralock"><a href="#Renntralock" class="headerlink" title="Renntralock"></a>Renntralock</h2><blockquote>
+<p>非公平锁</p>
+</blockquote>
+<p><img src="/../images/typora-user-images/image-20230527211636401.png" alt="image-20230527211636401"></p>
+<p>通过cas，如果把0修改成1，说明成功获取到了锁（这里通过cas怕别人并发拿到）</p>
+<p><img src="/../images/typora-user-images/image-20230527212234968.png" alt="image-20230527212234968"></p>
+<p><img src="/../images/typora-user-images/image-20230527213852700.png" alt="image-20230527213852700"></p>
+<p><img src="/../images/typora-user-images/image-20230527214030885.png" alt="image-20230527214030885"></p>
+<blockquote>
+<p>锁重入</p>
+</blockquote>
+<p><img src="/../images/typora-user-images/image-20230527213255789.png" alt="image-20230527213255789"></p>
+<blockquote>
+<p>参考资料</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/45305463">https://zhuanlan.zhihu.com/p/45305463</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/540999126">https://zhuanlan.zhihu.com/p/540999126</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20201111200435712.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poZW5nemhhb3lhbmcxMjI=,size_16,color_FFFFFF,t_70" alt="img"></p>
 
                 
             </div>
@@ -1710,7 +1762,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.2k</span>&nbsp;字
+                class="white-color">44k</span>&nbsp;字
             
             
             

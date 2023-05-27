@@ -672,21 +672,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-23
+                    2023-05-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    4.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    15 分
                 </div>
                 
 
@@ -1059,6 +1059,57 @@ LIMIT 0,50;<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <p><img src="/../images/typora-user-images/image-20230523090655175.png" alt="image-20230523090655175"></p>
 <p><img src="/../images/typora-user-images/image-20230523090812372.png" alt="image-20230523090812372"></p>
 <p>配置也是通过shardingspere ，在properties中配置</p>
+<h2 id="非聚集索引回表"><a href="#非聚集索引回表" class="headerlink" title="非聚集索引回表"></a>非聚集索引回表</h2><p>一般普通索引就是非聚集索引，需要回表。聚集索引一般为主键索引，根据这个再进行回表。</p>
+<blockquote>
+<p>为啥不都用聚集索引</p>
+</blockquote>
+<p>没必要，浪费空间，因为每一个创建一个索引，innodb都会创建一个索引树，如果叶子节点都放数据就会浪费空间</p>
+<blockquote>
+<p>具体参考</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38192427/article/details/111872683">https://blog.csdn.net/weixin_38192427/article/details/111872683</a></p>
+<h2 id="不同类别索引创建"><a href="#不同类别索引创建" class="headerlink" title="不同类别索引创建"></a>不同类别索引创建</h2><blockquote>
+<p>主键索引</p>
+</blockquote>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> tbl_name <span class="token keyword">ADD</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>col_list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 该语句添加一个主键，这意味着索引值必须是唯一的，且不能为NULL。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>唯一索引</p>
+</blockquote>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> tbl_name <span class="token keyword">ADD</span> <span class="token keyword">UNIQUE</span> index_name <span class="token punctuation">(</span>col_list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 这条语句创建索引的值必须是唯一的，索引值可以为null（null可重复出现）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>普通索引</p>
+</blockquote>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> tbl_name <span class="token keyword">ADD</span> <span class="token keyword">INDEX</span> index_name <span class="token punctuation">(</span>col_list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 添加普通索引，索引值可出现多次。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>删除</p>
+</blockquote>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> tbl_name <span class="token keyword">DROP</span> <span class="token keyword">INDEX</span> index_name；<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="索引失效原因"><a href="#索引失效原因" class="headerlink" title="索引失效原因"></a>索引失效原因</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43460095/article/details/125538837">https://blog.csdn.net/qq_43460095/article/details/125538837</a></p>
+<h2 id="覆盖索引"><a href="#覆盖索引" class="headerlink" title="覆盖索引"></a>覆盖索引</h2><p>就是联合索引，在普通索引查询后，需要进行回表操作，但如果查的多，一直回表比较费时。</p>
+<p>这时候可以采用覆盖索引进行解决</p>
+<p><img src="/../images/typora-user-images/image-20230527162843019.png" alt="image-20230527162843019"></p>
+<p>比如这里增加name、和age复合索引，这样在查name和age就不需要回表，但要注意索引失效</p>
+<blockquote>
+<p>参考链接</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cv411P7Wb/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc">https://www.bilibili.com/video/BV1cv411P7Wb/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Aplumage/article/details/117015144">https://blog.csdn.net/Aplumage/article/details/117015144</a></p>
+<h2 id="索引下推"><a href="#索引下推" class="headerlink" title="索引下推"></a>索引下推</h2><p>Mysql5.6更新后一个重要特性，被问到要答出来</p>
+<p><img src="/../images/typora-user-images/image-20230527192116893.png" alt="image-20230527192116893"></p>
+<blockquote>
+<p>参考</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ks4y157CS/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc">https://www.bilibili.com/video/BV1ks4y157CS/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc</a></p>
 
                 
             </div>
@@ -1684,19 +1735,19 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/7f1ae6fg.html">
+                <a href="/posts/7f1ae6sp.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928013951.jpg" class="responsive-img" alt="反射">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021038.jpg" class="responsive-img" alt="spring">
                         
-                        <span class="card-title">反射</span>
+                        <span class="card-title">spring</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            java反射
+                            spring知识
                         
                     </div>
                     <div class="publish-info">
@@ -1909,7 +1960,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.2k</span>&nbsp;字
+                class="white-color">44k</span>&nbsp;字
             
             
             

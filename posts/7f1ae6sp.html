@@ -672,21 +672,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-25
+                    2023-05-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    14 分
                 </div>
                 
 
@@ -1045,6 +1045,24 @@
 <p>注意</p>
 </blockquote>
 <p>RequestBody的作用是将前端传来的json格式的数据转为自己定义好的javabean对象，需要注意的是传入数据的属性名称要和后端javabean中定义的一致，发送请求后可以看到在控制台中我们通过javabean对象的get方法打印出了前端传来的值，说明json数据已经成功被转换为了javabean对象，将对应的属性进行了赋值。</p>
+<h2 id="SpringBoot-的核心注解是哪个？它主要由哪几个注解组成的？"><a href="#SpringBoot-的核心注解是哪个？它主要由哪几个注解组成的？" class="headerlink" title="SpringBoot 的核心注解是哪个？它主要由哪几个注解组成的？"></a>SpringBoot 的核心注解是哪个？它主要由哪几个注解组成的？</h2><p>启动类上面的注解是@SpringBootApplication，它也是 SpringBoot 的核心注解，主要组合包含了以下 3 个注解：</p>
+<p>1，@SpringBootConfiguration:组合了@Configuration注解,实现配置文件的功能。</p>
+<p>2，@EnableAotuConfiguration:打开自动配置功能，也可以关闭某些自动配置的选项 </p>
+<p>3，@ComponentScan:Spring组件扫描功能，让SpringBoot扫描到Configuration类并把它加入到程序的上下文。</p>
+<h2 id="springboot自动配置"><a href="#springboot自动配置" class="headerlink" title="springboot自动配置"></a>springboot自动配置</h2><blockquote>
+<p>springboot启动流程</p>
+</blockquote>
+<p><img src="/../images/typora-user-images/image-20230527130031796.png" alt="image-20230527130031796"></p>
+<p><img src="/../images/typora-user-images/image-20230527130250277.png" alt="image-20230527130250277"></p>
+<blockquote>
+<p>原理</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46316970/article/details/125898849">https://blog.csdn.net/m0_46316970/article/details/125898849</a></p>
+<h2 id="ComponentScan-扫描类，可以扫描很多个类还是只能一个类？"><a href="#ComponentScan-扫描类，可以扫描很多个类还是只能一个类？" class="headerlink" title="@ComponentScan 扫描类，可以扫描很多个类还是只能一个类？"></a>@ComponentScan 扫描类，可以扫描很多个类还是只能一个类？</h2><p>默认情况下,@<em>ComponentScan扫描</em>入口类同级及其子级包下的所有文件。</p>
+<blockquote>
+<p>扫描其他包</p>
+</blockquote>
+<p>动指定扫描包路径。</p>
 
                 
             </div>
@@ -1617,19 +1635,19 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/7a46f93c.html">
+                <a href="/posts/7f1ae6dh.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021332.jpg" class="responsive-img" alt="马哲">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021744.jpg" class="responsive-img" alt="mysql">
                         
-                        <span class="card-title">马哲</span>
+                        <span class="card-title">mysql</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            积累基础知识
+                            面试中查缺补漏，部分mysql基础知识
                         
                     </div>
                     <div class="publish-info">
@@ -1640,8 +1658,8 @@ new Valine({
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%85%AC%E5%85%B1%E7%9F%A5%E8%AF%86/" class="post-category">
-                                    公共知识
+                            <a href="/categories/mysql/" class="post-category">
+                                    mysql
                                 </a>
                             
                             
@@ -1667,22 +1685,22 @@ new Valine({
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/7f1ae6sp.html">
+                <a href="/posts/7f1ae6fg.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021038.jpg" class="responsive-img" alt="spring">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928013951.jpg" class="responsive-img" alt="反射">
                         
-                        <span class="card-title">spring</span>
+                        <span class="card-title">反射</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            spring知识
+                            java反射
                         
                     </div>
                     <div class="publish-info">
@@ -1701,7 +1719,6 @@ new Valine({
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1896,7 +1913,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.2k</span>&nbsp;字
+                class="white-color">44k</span>&nbsp;字
             
             
             
