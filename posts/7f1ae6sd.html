@@ -672,21 +672,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-26
+                    2023-05-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -798,6 +798,7 @@
 <p>方案二</p>
 </blockquote>
 <p>在插入数据的时候同时插入缓存一个标志，比如设置60秒过期（根据业务定，差不多可以主从同步的时间），再查的时候先判断这个缓存还有没，如果有则查主，如果没有（说明已经主从辅助完成了）查从。</p>
+<h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><p>在形变模块，为了提升查询速度，对数据库进行了分库分表工作，对表进行了水平拆分，拆分了三个表。用到了数据库中间件shardingshere，采用了mod进行分片（利用传感器id），分布式id采用雪花策略，这样可以把同一个传感器的数据分到同一个表里，查询的时候就不需要查多张表了，提升速度。另外，项目里面有根据时间进行查询的，根据上面的分片策略可以实现，但需要到多张表中查寻，这样性能会低。我的解决方法采用看冗余数据，在通过时间进行范围分片。另外，做了主从复制，共搭建了两个从节点（在mini中配置），这里出现了一个问题，最新的数据有一部分查不到，原因是（通过shardingshere配置了查走从，其他走主。可能从还没有同步过来数据），解决方案是在插入数据的时候在redis中查如一个缓存，类似标志位，设置60秒（主从时间够就行），查的时候判断这个缓存还在吗，如果不在了就说明同步完成，查从。否则查主。</p>
 
                 
             </div>
@@ -1370,19 +1371,19 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/7f1ae090.html">
+                <a href="/posts/7f1ae6dp.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020120.jpg" class="responsive-img" alt="java基础">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928012539.jpg" class="responsive-img" alt="jvm">
                         
-                        <span class="card-title">java基础</span>
+                        <span class="card-title">jvm</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            面试中查缺补漏，部分java基础知识
+                            面试中查缺补漏，部分jvm基础知识
                         
                     </div>
                     <div class="publish-info">
@@ -1423,19 +1424,19 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/7f1ae6dp.html">
+                <a href="/posts/7f1ae090.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928012539.jpg" class="responsive-img" alt="jvm">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020120.jpg" class="responsive-img" alt="java基础">
                         
-                        <span class="card-title">jvm</span>
+                        <span class="card-title">java基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            面试中查缺补漏，部分jvm基础知识
+                            面试中查缺补漏，部分java基础知识
                         
                     </div>
                     <div class="publish-info">
@@ -1648,7 +1649,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">44k</span>&nbsp;字
+                class="white-color">48.2k</span>&nbsp;字
             
             
             

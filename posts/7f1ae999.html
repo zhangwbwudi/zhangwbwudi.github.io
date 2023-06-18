@@ -672,21 +672,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-27
+                    2023-06-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    3.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    13 分
                 </div>
                 
 
@@ -874,6 +874,15 @@ boundValueOperations<span class="token punctuation">.</span><span class="token f
 </blockquote>
 <p><img src="/../images/typora-user-images/image-20230523112337372.png" alt="image-20230523112337372"></p>
 <p>这些本质也是调用的threadpool</p>
+<blockquote>
+<p>拒绝策略</p>
+</blockquote>
+<ul>
+<li>AbortPolicy中止策略：丢弃任务并抛出异常。比较关键的业务推荐使用该策略，这样在系统不能承载更大并发量的时候就能通过异常发现</li>
+<li>DiscardPolicy丢弃策略：丢弃任务不抛异常。一些无关紧要的任务可以使用这个策略</li>
+<li>DiscardOldestPolicyi弃老策略：根据实际业务来决定是否允许丢弃老任务</li>
+<li>CallerRunsPolicy：由调用者处理。一般在不允许失败、对性能要求不高、并发量小的场景使用</li>
+</ul>
 <h2 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h2><blockquote>
 <p>node</p>
 </blockquote>
@@ -912,6 +921,68 @@ boundValueOperations<span class="token punctuation">.</span><span class="token f
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/45305463">https://zhuanlan.zhihu.com/p/45305463</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/540999126">https://zhuanlan.zhihu.com/p/540999126</a></p>
 <p><img src="https://img-blog.csdnimg.cn/20201111200435712.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poZW5nemhhb3lhbmcxMjI=,size_16,color_FFFFFF,t_70" alt="img"></p>
+<h2 id="redis-1"><a href="#redis-1" class="headerlink" title="redis"></a>redis</h2><blockquote>
+<p>数据类型</p>
+</blockquote>
+<p><img src="/../images/typora-user-images/image-20230603205850759.png" alt="image-20230603205850759"></p>
+<blockquote>
+<p>zset数据结构</p>
+</blockquote>
+<p>压缩链表和跳表</p>
+<blockquote>
+<p>压缩列表</p>
+</blockquote>
+<p>压缩列表本质上就是一个数组，只不过增加了一些节点</p>
+<p><img src="/../images/typora-user-images/image-20230603205736235.png" alt="image-20230603205736235"></p>
+<p>如上图所示，黄色是增加的部分</p>
+<p>在压缩列表中，如果我们要查找定位第一个元素和最后一个元素，可以通过表头三个字段的长度直接定位，复杂度是 O(1)。而<strong>查找其他元素时，就没有这么高效了，只能逐个查找，此时的复杂度就是 O(N) 了，因此压缩列表不适合保存过多的元素</strong>。</p>
+<blockquote>
+<p>跳表</p>
+</blockquote>
+<p>之前只能从头一个一个遍历，时间复杂度为 O(N) </p>
+<p>跳表是增加了多级索引</p>
+<p>例如每隔一个数据就建立一层索引，建立多层就类似于二分查找了，时间复杂度 O(logN) </p>
+<p><img src="/../images/typora-user-images/image-20230603210045950.png" alt="image-20230603210045950"></p>
+<blockquote>
+<p>什么时候用压缩列表，什么时候用跳表？</p>
+</blockquote>
+<p>有序集合保证元素数量小于128个时，用压缩列表</p>
+<blockquote>
+<p>红黑树的时间复杂度也是O（logn），为啥 不用它，而选择跳表</p>
+</blockquote>
+<p>首先，跳表可以查范围数据，比如上述查22-27，这样可以找到22后直接遍历即可</p>
+<p>其次，跳表是通过多层索引，结构比较简单，更加容易实现。红黑树还要调节点</p>
+<blockquote>
+<p>参考资料</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1kh411x7Jc/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc">https://www.bilibili.com/video/BV1kh411x7Jc/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc</a></p>
+<blockquote>
+<p>Redis为什么不用b+树？MySQL为什么不用跳表？</p>
+</blockquote>
+<ol>
+<li>这个问题在于 <strong>Redis是直接操作内存的并不需要磁盘io而MySQL需要去读取io</strong>，所以mysql要使用b+树的方式减少磁盘io，B+树的原理是 叶子节点存储数据，非叶子节点存储索引，每次读取磁盘页时就会读取一整个节点,每个叶子节点还有指向前后节点的指针，为的是最大限度的降低磁盘的IO;因为数据在内存中读取耗费的时间是从磁盘的IO读取的百万分之一</li>
+<li>而Redis是 内存中读取数据，不涉及IO，因此使用了跳表，跳表明显是更<strong>快更简单</strong>的方式。</li>
+</ol>
+<h2 id="什么是布隆过滤器"><a href="#什么是布隆过滤器" class="headerlink" title="什么是布隆过滤器"></a>什么是布隆过滤器</h2><blockquote>
+<p>原理</p>
+</blockquote>
+<p>布隆过滤器的原理是，当一个元素被加入集合时，通过 K 个散列函数将这个元素映射成一个位数组中的 K 个点（offset），把它们置为 1。检索时，我们只要看看这些点是不是都是 1 就（大约）知道集合中有没有它了：如果这些点有任何一个 0，则被检元素一定不在；如果都是 1，则被检元素很可能在。这就是布隆过滤器的基本思想。</p>
+<p>简单来说就是准备一个长度为 m 的位数组并初始化所有元素为 0，用 k 个散列函数对元素进行 k 次散列运算跟 len(m)取余得到 k 个位置并将 m 中对应位置设置为 1。<br><img src="/../images/typora-user-images/bab5a3609761d1673465184227161021.png" alt="img"></p>
+<blockquote>
+<p>优点</p>
+</blockquote>
+<ol>
+<li>空间占用极小，因为本身不存储数据而是用比特位表示数据是否存在，某种程度有保密的效果。</li>
+<li>插入与查询时间复杂度均为 O(k)，常数级别，k 表示散列函数执行次数。</li>
+<li>散列函数之间可以相互独立，可以在硬件指令层加速计算。</li>
+</ol>
+<blockquote>
+<p>缺点</p>
+</blockquote>
+<p>可能存在误判</p>
+<h2 id="redis为啥快"><a href="#redis为啥快" class="headerlink" title="redis为啥快"></a>redis为啥快</h2><p>1.在内存</p>
+<p>2.数据结构多，找到对应的</p>
+<p>3.单线程，没有啥切换</p>
 
                 
             </div>
@@ -1484,19 +1555,19 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/7f1ae6sf.html">
+                <a href="/posts/7f1ae6ui.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020152.jpg" class="responsive-img" alt="算法思想">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020832.jpg" class="responsive-img" alt="集合常用api">
                         
-                        <span class="card-title">算法思想</span>
+                        <span class="card-title">集合常用api</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            常用算法解决思路
+                            集合中常用的api，方便编程用
                         
                     </div>
                     <div class="publish-info">
@@ -1537,19 +1608,19 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/7f1ae6ui.html">
+                <a href="/posts/7a46f93c.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020832.jpg" class="responsive-img" alt="集合常用api">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021332.jpg" class="responsive-img" alt="马哲">
                         
-                        <span class="card-title">集合常用api</span>
+                        <span class="card-title">马哲</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            集合中常用的api，方便编程用
+                            积累基础知识
                         
                     </div>
                     <div class="publish-info">
@@ -1560,8 +1631,8 @@ new Valine({
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%85%AC%E5%85%B1%E7%9F%A5%E8%AF%86/" class="post-category">
+                                    公共知识
                                 </a>
                             
                             
@@ -1762,7 +1833,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">44k</span>&nbsp;字
+                class="white-color">48.2k</span>&nbsp;字
             
             
             

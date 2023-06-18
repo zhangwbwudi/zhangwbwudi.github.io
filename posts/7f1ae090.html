@@ -672,21 +672,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-24
+                    2023-06-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    16.5k
+                    17.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    59 分
+                    61 分
                 </div>
                 
 
@@ -1487,6 +1487,66 @@ s2 <span class="token operator">=</span> <span class="token keyword">new</span> 
 <p>链接数据库</p>
 </blockquote>
 <p><img src="/../images/typora-user-images/image-20230524112414644.png" alt="image-20230524112414644"></p>
+<h2 id="hasmap扩容"><a href="#hasmap扩容" class="headerlink" title="hasmap扩容"></a>hasmap扩容</h2><h3 id="扩容容量"><a href="#扩容容量" class="headerlink" title="扩容容量"></a>扩容容量</h3><p>扩容容量就是2倍，因为容量是2 的幂次方，扩容也是左移一位，例如16&lt;&lt;1 = 32</p>
+<blockquote>
+<p>为啥用左移，不是乘法</p>
+</blockquote>
+<p>主要是提升cpu性能，因为cpu是不支持乘法运算的，所有的运算会转换成加法，移位可以提高效率</p>
+<blockquote>
+<p>理解</p>
+</blockquote>
+<p><img src="/../images/typora-user-images/image-20230604172936773.png" alt="image-20230604172936773"></p>
+<p>不指定，就是16，可以在构造函数指定，但会转化为2的幂数（3变4）</p>
+<blockquote>
+<p>为啥要转换成2的幂数</p>
+</blockquote>
+<p>为了末尾是1</p>
+<p>由于哈希值是和长度-1进行取余</p>
+<p>例如16是10000，减一后变成01111，这样取余可以。</p>
+<p>但15如果不变成最近的2的幂数，则15对应的是01111，减一后变成01110，这样15（1111）和14（1110）取余后的结果是一致的，增加了冲突</p>
+<p><img src="/../images/typora-user-images/image-20230604173425101.png" alt="image-20230604173425101"></p>
+<blockquote>
+<p>参考</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yu411y7Jr/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc">https://www.bilibili.com/video/BV1Yu411y7Jr/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc</a></p>
+<h3 id="啥时候扩容"><a href="#啥时候扩容" class="headerlink" title="啥时候扩容"></a>啥时候扩容</h3><p>负载因子和长度乘积决定</p>
+<h3 id="扩容死循环"><a href="#扩容死循环" class="headerlink" title="扩容死循环"></a>扩容死循环</h3><p>只在1.7版本有，因为采取了头插法</p>
+<p>在多线程扩容下</p>
+<p><img src="/../images/typora-user-images/image-20230605101839418.png" alt="image-20230605101839418"></p>
+<p><img src="/../images/typora-user-images/image-20230605101901953.png" alt="image-20230605101901953"></p>
+<p>如上图所示，如果在扩容的时候T2线程休眠，这时候T1进行扩容</p>
+<p><img src="/../images/typora-user-images/image-20230605101955335.png" alt="image-20230605101955335"></p>
+<p>扩容完成之后T2的节点和next节点会反过来，这时候T2在进行扩容，会形成死循环</p>
+<p><img src="/../images/typora-user-images/image-20230605102051736.png" alt="image-20230605102051736"></p>
+<blockquote>
+<p>如何解决</p>
+</blockquote>
+<p>在1.8改成了尾插法，直接解决了</p>
+<p>在1.7，可以使用</p>
+<p><img src="/../images/typora-user-images/image-20230605102150096.png" alt="image-20230605102150096"></p>
+<blockquote>
+<p>参考</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1oD4y1b7RF?p=2&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc">https://www.bilibili.com/video/BV1oD4y1b7RF?p=2&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc</a></p>
+<h2 id="如何扩容（数据迁移）"><a href="#如何扩容（数据迁移）" class="headerlink" title="如何扩容（数据迁移）"></a>如何扩容（数据迁移）</h2><p>主要分为四个种类状态，节点是null，只有一个节点，有一个链，有红黑树</p>
+<blockquote>
+<p>null</p>
+</blockquote>
+<p>不用处理</p>
+<blockquote>
+<p>只有一个节点</p>
+</blockquote>
+<p>只有一个节点，说明没有发生冲突，直接迁移就行，根据新表长度计算出在新表的位置，然后放进去就行</p>
+<blockquote>
+<p>只有一个链</p>
+</blockquote>
+<p>说明发生了冲突，需要把当前这个链表拆分成两类，分为高位链和低位链</p>
+<p>由于冲突成链了，所以这个链表中低位都是相同的（都是和长度-1计算出来的）（例如16，减一后变成01111，低位是后4位，高位是第五位，目前链表的低位一定是相同的，高位不一样，有的是0，有的是1）</p>
+<p>对于高位是1的，到新表扩容肯定是变多了，是老表的位置加老表的size，因为高位1就是老表的长度。（例如，表长度是16，8的位置扩容后在新表的位置应该是8+16=24这个位置）</p>
+<blockquote>
+<p>红黑树</p>
+</blockquote>
+<p>也是高低位（以后再看）</p>
 
                 
             </div>
@@ -2059,43 +2119,6 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/0.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021815.jpg" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-25
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            蜗牛
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/posts/7f1ae6sd.html">
                     <div class="card-image">
                         
@@ -2109,6 +2132,59 @@ new Valine({
                     <div class="summary block-with-text">
                         
                             mysq分库分表
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/mysql/" class="post-category">
+                                    mysql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PicGo/">
+                        <span class="chip bg-color">PicGo</span>
+                    </a>
+                    
+                    <a href="/tags/GitHub%E5%9B%BE%E5%BA%8A/">
+                        <span class="chip bg-color">GitHub图床</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/7f1ae6dh.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021744.jpg" class="responsive-img" alt="mysql">
+                        
+                        <span class="card-title">mysql</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            面试中查缺补漏，部分mysql基础知识
                         
                     </div>
                     <div class="publish-info">
@@ -2321,7 +2397,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">44k</span>&nbsp;字
+                class="white-color">48.2k</span>&nbsp;字
             
             
             

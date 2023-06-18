@@ -672,21 +672,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-27
+                    2023-06-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    16 分
                 </div>
                 
 
@@ -1063,6 +1063,50 @@
 <p>扫描其他包</p>
 </blockquote>
 <p>动指定扫描包路径。</p>
+<h2 id="springboot自动装配"><a href="#springboot自动装配" class="headerlink" title="springboot自动装配"></a>springboot自动装配</h2><blockquote>
+<p>自动装配和自动配置</p>
+</blockquote>
+<p>自动装配是autowire</p>
+<p>自动配置是auto-configuration</p>
+<blockquote>
+<p>自动配置</p>
+</blockquote>
+<p>这里用@ComponentScan来加载我们application路径下的包，用@EnableAutoConfiguration来用spring factory机制来加载第三方的jar包的配置类，所有加载好后，再去加载这些配置类用@Import，@Bean等注解去加载的别的配置类，此时所有需要加载的配置类都加载好了，再去实例化这些bean，将这些bean注册到IOC中</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1NY411P7VX/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc">https://www.bilibili.com/video/BV1NY411P7VX/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc</a></p>
+<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p><img src="/../images/typora-user-images/image-20230604105038260.png" alt="image-20230604105038260"></p>
+<blockquote>
+<p>用法</p>
+</blockquote>
+<p>1、直接填class数组方式<br>2、ImportSelector方式【重点】<br>3、ImportBeanDefinitionRegistrar方式</p>
+<blockquote>
+<p>普通</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Import</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 类名<span class="token punctuation">.</span><span class="token keyword">class</span> <span class="token punctuation">,</span> 类名<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestDemo</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>ImportSelector</p>
+</blockquote>
+<p>分析实现接口的selectImports方法中的：<br>1、返回值： 就是我们实际上要导入到容器中的组件全类名【重点 】<br>2、参数： AnnotationMetadata表示当前被@Import注解给标注的所有注解信息【不是重点】<br>需要注意的是selectImports方法可以返回空数组但是不能返回null，否则会报空指针异常！</p>
+<p>第一步：创建Myclass类并实现ImportSelector接口，这里用于演示就添加一个全类名给其返回值</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Myclass</span> <span class="token keyword">implements</span> <span class="token class-name">ImportSelector</span> <span class="token punctuation">{</span><span class="token comment">//要实现ImportSelector接口</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">selectImports</span><span class="token punctuation">(</span><span class="token class-name">AnnotationMetadata</span> annotationMetadata<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token string">"com.yc.Test.TestDemo3"</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">//这里是要导入的全限定名</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>类似注入多个，每个用它的全限定名</p>
+<p>第二步：使用ImportSelector方式的Myclass类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Import</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token class-name">Myclass</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>参考</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/a14654/article/details/114398753">https://blog.csdn.net/a14654/article/details/114398753</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1NY411P7VX/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc">https://www.bilibili.com/video/BV1NY411P7VX/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c2eaa7091973b76eb57f77f9dfc9eecc</a></p>
 
                 
             </div>
@@ -1635,19 +1679,19 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/7f1ae6dp.html">
+                <a href="/posts/7f1ae6dh.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928012539.jpg" class="responsive-img" alt="jvm">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021744.jpg" class="responsive-img" alt="mysql">
                         
-                        <span class="card-title">jvm</span>
+                        <span class="card-title">mysql</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            面试中查缺补漏，部分jvm基础知识
+                            面试中查缺补漏，部分mysql基础知识
                         
                     </div>
                     <div class="publish-info">
@@ -1658,8 +1702,8 @@ new Valine({
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/java/" class="post-category">
-                                    java
+                            <a href="/categories/mysql/" class="post-category">
+                                    mysql
                                 </a>
                             
                             
@@ -1913,7 +1957,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">44k</span>&nbsp;字
+                class="white-color">48.2k</span>&nbsp;字
             
             
             
