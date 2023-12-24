@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/posts/f868c5a6.html</loc>
+    
+    <lastmod>2023-12-24</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://example.com/posts/d315c0a7.html</loc>
     
     <lastmod>2023-11-25</lastmod>
@@ -340,7 +347,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2023-11-25</lastmod>
+    <lastmod>2023-12-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -348,14 +355,14 @@
   
   <url>
     <loc>http://example.com/tags/PicGo/</loc>
-    <lastmod>2023-11-25</lastmod>
+    <lastmod>2023-12-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/GitHub%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2023-11-25</lastmod>
+    <lastmod>2023-12-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -364,42 +371,42 @@
   
   <url>
     <loc>http://example.com/categories/java/</loc>
-    <lastmod>2023-11-25</lastmod>
+    <lastmod>2023-12-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/mysql/</loc>
-    <lastmod>2023-11-25</lastmod>
+    <lastmod>2023-12-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/linux/</loc>
-    <lastmod>2023-11-25</lastmod>
+    <lastmod>2023-12-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/%E5%85%AC%E5%85%B1%E7%9F%A5%E8%AF%86/</loc>
-    <lastmod>2023-11-25</lastmod>
+    <lastmod>2023-12-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2023-11-25</lastmod>
+    <lastmod>2023-12-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/%E9%9D%A2%E8%AF%95/</loc>
-    <lastmod>2023-11-25</lastmod>
+    <lastmod>2023-12-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

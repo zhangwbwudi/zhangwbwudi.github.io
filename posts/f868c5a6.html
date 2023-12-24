@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="linux, luckyzmj 计算机 网络安全 渗透测试">
+    <meta name="keywords" content="宪法, luckyzmj 计算机 网络安全 渗透测试">
     <meta name="description" content="硕士 | 计算机科学与技术 | 网络安全">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>linux | 蜗牛</title>
+    <title>宪法 | 蜗牛</title>
 
     <link rel="icon" type="image/jpeg" href="https://s1.ax1x.com/2020/05/17/YR20js.jpg">
 
@@ -510,12 +510,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020939.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928014458.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">linux</h1>
+                    <h1 class="description center-align post-title">宪法</h1>
                 </div>
             </div>
         </div>
@@ -634,29 +634,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/PicGo/">
-                                <span class="chip bg-color">PicGo</span>
-                            </a>
-                        
-                            <a href="/tags/GitHub%E5%9B%BE%E5%BA%8A/">
-                                <span class="chip bg-color">GitHub图床</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/linux/" class="post-category">
-                                linux
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -665,28 +648,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-15
+                    2023-12-24
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-25
+                    2023-12-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    3.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    11 分
                 </div>
                 
 
@@ -704,198 +687,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>bin sbin etc home usr root tmp</p>
-<h2 id="vim快捷键"><a href="#vim快捷键" class="headerlink" title="vim快捷键"></a>vim快捷键</h2><p><img src="/../images/typora-user-images/image-20230425191658866.png" alt="image-20230425191658866"></p>
-<h2 id="关机和重启的命令"><a href="#关机和重启的命令" class="headerlink" title="关机和重启的命令"></a>关机和重启的命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">shutdown</span> -h now			立刻进行关机
-<span class="token function">shutdown</span> -h <span class="token number">1</span>			”hello，1分钟后会关机了“
-<span class="token function">shutdown</span> -r now			现在重新启动计算机
-<span class="token function">halt</span>					关机
-<span class="token function">reboot</span>					重新启动
-syn					把内存的数据同步到磁盘<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>注意：目前的shutdown/reboot/halt 等命令均已经在关机前进行了sync，但是在执行关机或重启前sync一下，小心驶得万年船</p>
-</blockquote>
-<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><blockquote>
-<p>用户切换</p>
-</blockquote>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>halo@zwb-lucky root<span class="token punctuation">]</span>$ <span class="token function">su</span> root
-Password: 
-<span class="token punctuation">[</span>root@zwb-lucky ~<span class="token punctuation">]</span><span class="token comment">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>su - 用户名“<strong>命令来切换</strong></p>
-<p><strong>注意</strong></p>
-<p>1.从权限高的用户切换到权限低的用户时，不需要输入密码，反之需要</p>
-<p>2.当需要返回到原来用户时，使用exit/logout指令</p>
-<blockquote>
-<p>添加用户</p>
-</blockquote>
-<ul>
-<li>基本语法</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">useradd</span> 用户名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<ul>
-<li>实列(root权限下)</li>
-</ul>
-<pre class="line-numbers language-bah" data-language="bah"><code class="language-bah">useradd hucheng
-添加一个用户chucheng，默认该用户的家目录在/home/hucheng<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<ul>
-<li>细节说明</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">1、当用户创建成功后果，会自动的创建和用户同名的家目录
-2、也可以通过useradd -d 指定目录  新的用户名     来给新创建的用户指定家目录
-12<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="/../images/typora-user-images/20210620104231917.png" alt="在这里插入图片描述"></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">新建用户zhanzhiwen的home目录下的文件夹名称是muluming<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p>指定/修改密码</p>
-</blockquote>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">passwd</span> 用户名	<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>注意：修改密码要在root下</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>zhangsan@zwb-lucky home<span class="token punctuation">]</span>$ <span class="token function">passwd</span> zhangsan
-passwd: Only root can specify a user name.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>删除用户</p>
-</blockquote>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">userdel</span>   用户名
-<span class="token function">userdel</span> -r 用户名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>查询用户信息指令</p>
-</blockquote>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">id</span> 用户名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@zwb-lucky ~<span class="token punctuation">]</span><span class="token comment"># id root</span>
-<span class="token assign-left variable">uid</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span> <span class="token assign-left variable">gid</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span> <span class="token assign-left variable">groups</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span>
-<span class="token punctuation">[</span>root@zwb-lucky ~<span class="token punctuation">]</span><span class="token comment"># id halo</span>
-<span class="token assign-left variable">uid</span><span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">(</span>halo<span class="token punctuation">)</span> <span class="token assign-left variable">gid</span><span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">(</span>halo<span class="token punctuation">)</span> <span class="token assign-left variable">groups</span><span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">(</span>halo<span class="token punctuation">)</span>,10<span class="token punctuation">(</span>wheel<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>查看当前用户/登录用户</p>
-</blockquote>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">whoami/who am i<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p>用户组</p>
-</blockquote>
-<p>类似于角色，系统可以对有共性/权限的多个用户进行统一的管理</p>
-<p>新增组</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">指令：groupadd 组名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>删除组</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">指令（基本语法）：groupdel 组名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>注意：如果当添加用户时没有指定组，会默认创建和这个<strong>用户同名的组</strong>，同时把用户放到该组里</p>
-<p>增加用户时直接加上组</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">指令：useradd -g 用户组 用户名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>移动组</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">usermod</span> -g 组名 用户名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="运行级别说明："><a href="#运行级别说明：" class="headerlink" title="运行级别说明："></a>运行级别说明：</h2><p>0：关机</p>
-<p>1：单用户【找回丢失密码】</p>
-<p>2：多用户状态没有网络服务</p>
-<p>3：多用户状态有网络服务</p>
-<p>4：系统未使用保留给用户</p>
-<p>5：图形界面</p>
-<p>6：系统重启</p>
-<p>常用运行级别是3和5，也可以指定默认运行级别</p>
-<h2 id="帮助指令"><a href="#帮助指令" class="headerlink" title="帮助指令"></a>帮助指令</h2><ul>
-<li>man获得帮助信息</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">基本语法：man <span class="token punctuation">[</span>命令或配置文件<span class="token punctuation">]</span>（功能描述：获得帮助信息）<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>在linux下隐藏文件是以 “.” 开头的</p>
-<ul>
-<li>help指令</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">基本语法：help 命令 （功能描述：获得shell内置命令的帮助信息）<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="文件目录类"><a href="#文件目录类" class="headerlink" title="文件目录类"></a>文件目录类</h2><ul>
-<li>pwd指令</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">基本语法：pwd    （功能描述：显示当前工作目录的绝对路径）<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<ul>
-<li>ls指令</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">基本语法：ls [选项] [目录或是文件]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>常用选项</p>
-<p>-a ： 显示当前目录所有的文件和目录，包括隐藏的</p>
-<p>-l ： 以列表的方式显示信息</p>
-<ul>
-<li>cd指令</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">基本语法：cd [参数] （功能描述：切换到指定的目录）<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>理解：绝对路径和相对路径（相对路径是针对当前位置的路径）</p>
-<p>cd ~ 或者cd 回到自己的家目录</p>
-<p>cd … 回到当前目录的上一级目录</p>
-<ul>
-<li>mkdir指令</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">基本语法：mkdir [选项] 要创建的目录<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>理解：mkdir指令用于创建目录（默认只能创建一级目录）</p>
-<p>-p :创建多级目录</p>
-<ul>
-<li>rmdir指令（用于删除空目录）</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">基本语法：rmdir [选项] 要删除的空目录<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>使用细节：</p>
-<p>rmdir删除的是空目录，如果欲删除的目录下有内容则无法删除</p>
-<p>==如果需要删除非空目录，需要使用rm -rf 要删除的目录</p>
-<ul>
-<li>touch指令（用于创建空文件）</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">touch 文件名称<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<ul>
-<li>cp指令（copy拷贝文件导指定目录）</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">cp [选项] source dest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>常用选项：-r 递归复制真个文件夹</p>
-<p>应用实例:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">将 /home/hello.txt 拷贝到 /home/bbb 目录下
-<span class="token function">cp</span> /home/hello.txt /home/bbb
-递归复制整个文件夹，将/home/aaa 目录下的文件全部拷贝到/home/bbb下
-<span class="token function">cp</span> -r /home/aaa /hom/bbb
-<span class="token punctuation">(</span>是将整个目录和目录本身拷贝进来<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>rm指令（remove，移除文件或目录）=一定要小心！！！</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">基本语法：rm [选项] 要删除的文件或目录<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>常用选项</p>
-<p>-r : 递归删除整个文件夹</p>
-<p>-f ：强制删除不提示</p>
-<p>使用细节：强制删除不提示的方式，带上-f参数即可</p>
-<ul>
-<li>cat指令（查看文件内容）</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">cat [选项] 要查看的文件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>常用选项： -n 显示行号</p>
-<p>使用细节：cat只能浏览文件，而不能修改文件，为了浏览方便，一般会带上管道命令 |more</p>
-<pre class="line-numbers language-none"><code class="language-none">cat -n /etc/profile |more<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-
-
-<p>输入到控制台</p>
-<p>查看历史</p>
-<p>过滤查找，带行号</p>
+                <p>重点有宪法民法行法刑法<br><img src="https://com.miui.notes/note_image/b59b6bb10b9ea6808fb993d94a00c82f774535e4"><br>我们国家的统治阶级是人民，被统治阶级是敌人(那些被关进监狱的人)，对敌人要实行专政。无产阶级是领导。<br>民主国家就是针对于专政来说的。比如说古代呢都是这个专政，那个专政，我们建立民主就可以保护更好的保护公民。<br>宪法是政治法。<br>我们国家的根本制度是社会主义制度。<br>我们国家的根本政治制度是人民代表大会制度。<br>根本任务就是解决现阶段的矛盾，比如说现在的现阶段的矛盾呢就是穷，所以说呢要解放生产力用具，官方的语言来说呢就是集中力量现代化建设。<br>宪法的核心价值理念是保障公民的基本利益。(其实就是限制国家的权利，保护公民的权利。)<br><img src="https://com.miui.notes/note_image/0aee90a13f1d53a5dd18fc7d0ea936587cd64ff4"><br>民主事实化，法律是宪法是让每一个公民都拥有了权利，是限制，比如说国王啦这些等等。<br>宪法为什么是国家的根本法？我们可以从内容和形式上进行回答。<br>内容上他有几个章节，第一章呢是纲要，写了一些重要的改革了这些等等。第二章呢是公民所应该尽的义务和权利。第三章呢写的一些国家的机构。第四章呢写的就是一些国徽了，国歌这些(这里呢会考一些每章内容是什么，也可能会让你排序啦。)<br>在形式上，宪法的具有的法律效力是最高的。宪法的制定和修改原则更为的严格。<br>宪法要修改，首先要先有人提出来(全国人大常务委员会（这个是什么会呢？就是全国人大呃开的次数比较少，然后其他时间呢他都会有这个会来代替他，相当于说)还有1/5的全国人的代表)，然后再有修改主体(全国人大)，最后表绝（全体人员代表的2/3通过才行。注意，这里不是出席的，而是全体的。）<br>我国宪法的基本原则<br><img src="https://com.miui.notes/note_image/2b9b86cc40e48b60edadc44b13c714b79b830dc1"><br>人民主权原则<br>这个原则非常好理解，就是说权力属于人民人，但人民太多了，所以说呢要选出代表，因为后来他们在开大会就是人民代表大会。<br>基本人权原则<br>这里呢就是生存权和发展权。<br>法治原则<br>比如说依法治国这些。<br>权力制约原则<br>这个在中西方是不一样的，在西方的更多的表现是权力的制衡，比如说他们有多个派这些等等。我们国家呢是相互监督。把权力的分散在各个部门儿，他们之间相互密切合作，相互监督。<br>下面就是一些制约原则中的监督。比如说人民和人大代表，人大代表呢是由人民选出来的，他反映了就是人民的一个意愿，但是如果他做不好，人民可以罢免他。又比如说人民代表对那些国务院里面的当官儿的。又比如说公检法部门都有一些监督相互，举一个例子。公安机关的在调查一件犯罪事件，他先到现场去调查，调查完成之后呢，比如说他确定了一个人，这个时候他就要把这个交给检察院了（他进行审查)，然后检察院呢再就是交给法院。<br>世界宪法<br><img src="https://com.miui.notes/note_image/c2859a9963cc4d56fa15cb5601e5bce752991c58"><br>注意，这里最早的是英国，但是第一部法典确实就是美国的。<br>中国宪法历史<br><img src="https://com.miui.notes/note_image/fb32ff818603c2edf36b2794863cbb533c59476c"><br><img src="https://com.miui.notes/note_image/52013aa51583c95c56b04ee7f64791d732f19b18"><br>1982年的是现行宪法后面的五次修改呢都是在1982年，那是宪法进行基础上进行修改的。这样记就行，6565。1982年加上六就是1988年这样算。<br><img src="https://com.miui.notes/note_image/c7495845e7ea09e7b08a9a556766a65ffb81dffb"><br><img src="https://com.miui.notes/note_image/0162d9141bd06ee6c287e40fc4c7898308149af0"><br><img src="https://com.miui.notes/note_image/8fd8df7ee3274ed59996a2fb160e2c8847b4a997"><br><img src="https://com.miui.notes/note_image/793b3cc05a7b9c20c0b94832b8d2ee6c2bdd1ca8"><br>国家基本制度<br>国体与政体<br><img src="https://com.miui.notes/note_image/3a1711f5d864518cb0e9eb95b63feeb5884d9be5"><br>国体决定政体，政体体现国体。<br><img src="https://com.miui.notes/note_image/cabfbbbd7b17af2ccd0dbc87def7805368829b5c"><br>土地要么归国家所有，要么归集体所有，只有使用前才可以转让，他不可能归个人所有的。<br>这个地如果在城市，那么就是寸土寸金，这个是归国家所有的，如果是在农村呢大部分是归集体所有，也有一部分呃在法律写字务之内的呃归国家所有。<br>特别行政区制度<br><img src="https://com.miui.notes/note_image/0b8da19ae867f5afe0814b9d381c62a17a37efe8"><br>行政管理权里面并没有国防和外交。<br>立法权立的法要到全国人大常委进行备案。而且基本法不能进行自己立法。<br>注意最后一条外事权并不等于外交权。<br><img src="https://com.miui.notes/note_image/38032d3025bc37537afc5f0c3684730bf6bb32de"><br>与根本有关的找全国人大代表代表会。像备案了法律的备案了和基本法的一些解释因为法律是特别的抽象的啊，这些找常委会，因为常委会开的次数比较多嘛。剩下的国务院是搞管理的，就是说国防和那个外交，嗯，他们不能独立拥有，国务院可以管这个东西。<br>民族区域自治制度<br>注意这里的民族区自治和刚才的高度资质是不相同的，没有之前的那个权利高。<br><img src="https://com.miui.notes/note_image/aefb87fe771c608430afdbde01aff3e8d122799f"><br>这里要要看一些自治地方，和自治的机关。两个都符合才行，举个例子比较说。<br>某某自治村算不算民族区域自治？答，这个是不算的，因为没有村这个组织。<br>内蒙古自治区人民法院算不算？答，这个也不算的，虽然内蒙古自治区属于这个呃自治区，但是最高法院它并不属于自治机关。<br>这个第三条考的是比较多的，呃，这里简单的解释一下，就是说这个常委会呢里面的主任或副主任至少得有一个是民族的人进行担当，另外下面呢是一些自治区的一些领导，他们必须有这个当地的一个民族的一个人去管理。简单的说呢就是干部优先权<br>自治权<br><img src="https://com.miui.notes/note_image/8e4b2145328b8944c5ea75d27d6e84733613af6b"><br>简单的说明一下，比如说这个立法如果是国家层面的，那基本上要找全国人大和全国人大常委会这些，但对一些地方的呢啊，我们就可以呃分为普通的和民族民族自治的，普通的话就是说比如说山东这种啊，这种属于普通的，呃，对于民族自治的呢，就是我们说的这个第一条。哦，基本上就是呃就是上街的就是往上面报，就是全在人大常委会，嗯，然后呢不用备案啊，对于州和县呢，呃是对省里进行一个呃批准就行，嗯。<br><img src="https://com.miui.notes/note_image/e486145d473e59595d5c64e2c4ae2ceb8c6025d9"><br><img src="https://com.miui.notes/note_image/25a0bbce6a72df4b8557ff133efe76926b259e53"><br>村委会要设立啊，是要有那个乡政府进行一个牵头的哦，他们在由县进行一个批准。<br>但是要注意呀，这个乡政府呢只能说是引导支持村委员会，但并不能是领导，你想想他们要自制呀，所以说不能领导，只能能支持。<br><img src="https://com.miui.notes/note_image/af707810931f292e69934b88fe5980d61ac08518"><br>政协是干啥的？首先是政治协商，民族监督和参政社政<br>选举制度<br>基本原则<br><img src="https://com.miui.notes/note_image/6edfbbe430cb89ade641677634c2b14a16091bc1"><br>犯罪不一定被剥夺政治权利，这个看题目上，嗯，有没剥夺这个权利？<br><img src="https://com.miui.notes/note_image/0d191aa9c04a8f3597d335af6e0d327773a6e0e8"><br>这里只能在一个地方进行选举票，呃，他的意思是如果这这个地方属于就是上下级关系啊，就比如说历城区济南市，山东省这些我们可以一级一级往上弄，但是山东省呢比河南省这样的话就不可以了。<br><img src="https://com.miui.notes/note_image/6f0b0435afeb5ac7b6ee40e7e3a1a2e42a0703cc"><br>直接选举和间接选举，直接的话一般来说都是乡和县，其他的一般都是间接选举<br><img src="https://com.miui.notes/note_image/a892ee458fb4fab73282a4488fed098f5ddfc329"><br>这个匿名的话是可以委托给其他人的，但是要注意委托给其他人，那要那个人也有选举权利<br>国家机构<br>权力机关<br><img src="https://com.miui.notes/note_image/fa5098d3a7d19e2dbba8ca157110a730c6b20de2"><br>地域代表制就是一级一级选上来的，职业代表就是军队里面的。<br>职权<br><img src="https://com.miui.notes/note_image/6d5000e6b2430f7350e38c981cfbea156396ac5a"><br>宪法要2/3的通过才行，普通法了一半就行。<br><img src="https://com.miui.notes/note_image/a013f5859e11240d40d2508c8c2880166f3274d3"><br>这样机三席两长一主任。<br><img src="https://com.miui.notes/note_image/61dc9bd68c09586172e61b44aaaa89ae50ab88b5"><br>注意，如果是领导关系，那么既可以改变也可以撤销，如果只是监督关系，那我只能撤销，不能改变。<br>全国人大与全国人大常委会是一种领导关系。<br>12和14条考的<br><img src="https://com.miui.notes/note_image/12b6eee7179f9c3bbb012c531ffcc0702965b7f7"><br>常委会<br><img src="https://com.miui.notes/note_image/0e79fa9c2626557efa76de1ba1d7fbe2bcdb7506"><br>注意这里面的委员长和副委员长。他们不能连任超过两件之前的全国人大里面的都是可以连任的，还有上述这些官员都是全国人大选举出来的。<br>职权<br><img src="https://com.miui.notes/note_image/4015f3e4d39824e607b6cac38cda977a82af69da"><br>也就是解释和制定非基本法律，什么是非基本法律呢？就是除了民事，刑事法这些等等。<br><img src="https://com.miui.notes/note_image/880024e0b3cffbdc42e29d9dbe29cdbceb075ba9"><br>这里要注意乡是没有乡人常的。<br>监督只能撤销<br><img src="https://com.miui.notes/note_image/4f0bd30020c3931278bf079c85e86fa30012c6cd"><br>第八条注意，除了总理不能任免，其他的都可以，这是在与全国人大的不同，但他是在避讳几点。<br><img src="https://com.miui.notes/note_image/15d7cf0dd6d4baf0c0216e80053730a94629b80f"><br>人大代表<br><img src="https://com.miui.notes/note_image/d4a7944ce513da9089f9c87b65aa05f2d90f7f11"><br><img src="https://com.miui.notes/note_image/928ad592054d1350fae5dfe75b4cc80a896f985f"><br>注意人的代表并不是不能够逮捕，而是会比较麻烦，如果说他不受逮捕一定是错误的。还有就是县级以上<br>对于乡的人大代表，报告一下就行了，权利没那么大。<br>国家主席<br><img src="https://com.miui.notes/note_image/6f53c447a289b8c92c9eab64d7f6e785aa9216d9"><br>注意，政府首脑是国务院主席，并并不是国家主席。<br>你可以看出国家主席任免的都是国务院里面的人。<br><img src="https://com.miui.notes/note_image/844ee34033c4adc09833d8337a05f8882820db41"><br>这里需要注意的是首先乡镇是只有乡镇政府的，其次要注意是派出机关和派出机构派出机构呢，就比如说是派出所，他是上面派下来的，呃，加强这个地方的管理，它并不属于这个地方。啊，比如说乡镇南派出所。他就属于县了这些。派出机关呢，它更有自己的独立性，它可以自己的名义去招收了这些啊，比如说我们所说的街道办事处。<br>国务院<br><img src="https://com.miui.notes/note_image/536d85ea20608f43ae4ed904c593cbe1070ec271"><br>注意这里的最高权利执行机关是国务院，决定的机关那就是全国人大了。<br>这里如果有谁出了问题，都是一把手负责。<br><img src="https://com.miui.notes/note_image/d926f896a8285227bb25ea05b935169de50a2aa6"><br>宪法是全国人大，法律是全国人大和人常，行政法规是国务院，地方法规呢一般就是省和设区的市的人大和人常制定，规章制度呢，就一般的可以有部门规章和地方规章，这个地方规章呢也只有省和设区的市制定<br>看三四条就可以看出来，我国国家的行政部门都是领导关系，上下级关系。<br><img src="https://com.miui.notes/note_image/8fd931d3a364cf8eb8a9415ad90702566c174672"><br>领导他都是可以改变和撤销的。<br><img src="https://com.miui.notes/note_image/fc54da75dc0f68456dc4b6977e319ef88813d218"><br>对于建设和区域划分这些全国人大他只负责一省一级的建制。什么是神一级的建制呢，就比如说有没有山东这个省？省一级政府他主要决定是乡镇的这些。剩下的都是国务院的。<br>举个例子，省一级的区域划分，这是归谁管？归国务院管。因为全人大，他只负责建制。<br>还有紧急状态。全正常呢，它是决定全国进入竞争状态或者是呃个别省就是个别省，这个个别省的就是省全体。。国务院呢是决定个别地区进入。<br>中央军委委员会<br><img src="https://com.miui.notes/note_image/47a6302d8b1acdb0011d90deae444ad0fb24a914"><br>注意，全国人大常委会里面的呃有任期限制是两届。还有国务院里面的也有，根据限制也是两届<br>监察委员会的主任也是不得投两届<br>司法机关<br>注意，公安机关不属于司法机关，他属于行政机关。我国的司法机关只有人民法院和人民检察院。<br>人民法院<br>国家级别的有最高法院。省级的有省高法院，比如说呃什么什么省最高法院，这个法院里一个省最多有一个。市的话，就一般来说是市中院。县的话，比如说是基层人民法院。<br>注意上下级法院是监督关系，并不是领导关系。最多就二审，比如说你先提交，那就到基层，你不服就到市里面。<br>检察院<br><img src="https://com.miui.notes/note_image/058b5444f4d1c74da06082703f7d8c66936befae"><br>他是法律监督机关。他对本层负责和对上层负责。<br>检察院也是领导制度。<br>监察委员会<br><img src="https://com.miui.notes/note_image/d4cf959aed377891cdfa3f77f4c96b34e849e267"><br>监察委员会上下级是领导关系。和检察院呃整体的知识框架基本上是一样的，除了他的行政功能不一样。<br><img src="https://com.miui.notes/note_image/27c74e00c22b87fd9551be3947a790fb7ca45a19"><br>这里的任期届数，全身长，国务院他们的正的和负的都是有任期的。最高人民法院，最高人民检察院，国家监察委他们的老大是有任期的<br>这里的上下级关系有有上下级政府。分为领导和监督。对于领导：全人大和全人常，还有行政系统里面的，比如说国务院和地方政府，我上下级检察院，上下级监察委。对于监督关系主要是同级权力机关和其他机关，比如说全国人大和全国人大常委会与国务院，这个国务院是由全国人大产生，嗯，对全国人大负责，受全国人大监督。还有上下级权力机关，比如说山东省人大和济南人大，这个省的肯定肯定对济南有监督关系。还有上一级法院也是建立关系。<br><img src="https://com.miui.notes/note_image/f7fece9b43dd191d3c676adb28cc19018e54782f"><br>最高人民检察院他行驶的是法律方面的监督。中共中央纪律检查会看到中共中央，它就是属于党的一个东西。</p>
 
                 
             </div>
@@ -922,7 +714,7 @@ passwd: Only root can specify a user name.<span aria-hidden="true" class="line-n
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/posts/7f1ae6do.html">http://example.com/posts/7f1ae6do.html</a>
+                    <a href="http://example.com/posts/f868c5a6.html">http://example.com/posts/f868c5a6.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -959,15 +751,7 @@ passwd: Only root can specify a user name.<span aria-hidden="true" class="line-n
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/PicGo/">
-                                    <span class="chip bg-color">PicGo</span>
-                                </a>
-                            
-                                <a href="/tags/GitHub%E5%9B%BE%E5%BA%8A/">
-                                    <span class="chip bg-color">GitHub图床</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -1133,7 +917,7 @@ passwd: Only root can specify a user name.<span aria-hidden="true" class="line-n
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Sun Mar 15 2020 00:00:00 GMT+0800',
+    id: 'Sun Dec 24 2023 17:02:53 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -1464,53 +1248,39 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/7f1ae090.html">
+                <a href="/posts/f868c5a6.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020120.jpg" class="responsive-img" alt="java基础">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928014458.jpg" class="responsive-img" alt="宪法">
                         
-                        <span class="card-title">java基础</span>
+                        <span class="card-title">宪法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            面试中查缺补漏，部分java基础知识
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-24
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/java/" class="post-category">
-                                    java
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            蜗牛
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/PicGo/">
-                        <span class="chip bg-color">PicGo</span>
-                    </a>
-                    
-                    <a href="/tags/GitHub%E5%9B%BE%E5%BA%8A/">
-                        <span class="chip bg-color">GitHub图床</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -1521,48 +1291,32 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/7f1ae6dh.html">
+                <a href="/posts/c70ef8c4.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928021744.jpg" class="responsive-img" alt="mysql">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020407.jpg" class="responsive-img" alt="公文常识">
                         
-                        <span class="card-title">mysql</span>
+                        <span class="card-title">公文常识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            面试中查缺补漏，部分mysql基础知识
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-12
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/mysql/" class="post-category">
-                                    mysql
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            蜗牛
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/PicGo/">
-                        <span class="chip bg-color">PicGo</span>
-                    </a>
-                    
-                    <a href="/tags/GitHub%E5%9B%BE%E5%BA%8A/">
-                        <span class="chip bg-color">GitHub图床</span>
-                    </a>
-                    
                 </div>
                 
             </div>
